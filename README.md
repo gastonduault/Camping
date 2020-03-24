@@ -1,8 +1,15 @@
 # CampingS2
 
 ## Enoncé
-%3CmxGraphModel%3E%3Croot%3E%3CmxCell%20id%3D%220%22%2F%3E%3CmxCell%20id%3D%221%22%20parent%3D%220%22%2F%3E%3CmxCell%20id%3D%222%22%20value%3D%22%22%20style%3D%22curved%3D1%3BendArrow%3Dclassic%3Bhtml%3D1%3BexitX%3D0.433%3BexitY%3D0.992%3BexitDx%3D0%3BexitDy%3D0%3BexitPerimeter%3D0%3B%22%20edge%3D%221%22%20parent%3D%221%22%3E%3CmxGeometry%20width%3D%2250%22%20height%3D%2250%22%20relative%3D%221%22%20as%3D%22geometry%22%3E%3CmxPoint%20x%3D%22402.6099999999999%22%20y%3D%22429.3599999999999%22%20as%3D%22sourcePoint%22%2F%3E%3CmxPoint%20x%3D%22287.5%22%20y%3D%22440%22%20as%3D%22targetPoint%22%2F%3E%3CArray%20as%3D%22points%22%3E%3CmxPoint%20x%3D%22350%22%20y%3D%22440%22%2F%3E%3CmxPoint%20x%3D%22310%22%20y%3D%22410%22%2F%3E%3C%2FArray%3E%3C%2FmxGeometry%3E%3C%2FmxCell%3E%3C%2Froot%3E%3C%2FmxGraphModel%3E
+La gestion d'un camping est une tâche ardue et nécessite beaucoup d'effort et de rigueur.
 
+Le but de ce projet est de développer une application (mono-poste) qui permettra de gérer l'occupation des emplacements dans un camping. Elle doit se composer des programmes suivants :
+
+ 1) Dessin de la surface du camping et des emplacemments.
+ Cette partie consiste à initialiser le logiciel en implantant une carte représentant les contours du camping et la désignation des emplacements. Elle doit être entièrement en mode graphique. Son résultat sera un fichier décrivant le camping et les emplacements (numéroté).
+ 
+ 2) La gestion des emplacements.
+ C'est le coeur de l'application. Cette partie, récupérera le fichier des emplacements du camping. Elle doit permmettre de visualiser avec des couleurs différentes ceux qui sont libres de ceux qui sont occupés. Elle doit permettrede libérer un emplacements (départ d'un campeur), de le réserver (un campeur qui réserve par téléphone par exemple) et de l'allouer (arrivée d'un campeur).
 ## Objectif
 
 Création d'une application mono-poste qui permet de gérer l'occupation d'un camping
