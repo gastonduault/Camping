@@ -6,4 +6,4 @@ Création d'une application mono-poste qui permet de gérer l'occupation d'un ca
 
 ## Bête à Corne
 
-![alt text](Bet3.jpg "Bête à Corne")
+![alt text](Bet4.pdf "Bête à Corne")
