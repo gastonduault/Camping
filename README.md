@@ -17,3 +17,11 @@ Création d'une application mono-poste qui permet de gérer l'occupation d'un ca
 ## Bête à Corne
 
 ![alt text](Bet3.jpg "Bête à Corne")
+
+
+##Parties prenantes :
+-Commune
+-Commerces alentours 
+-Personnels du camping et saisonniers
+-Tourisme
+-Voisinnages du camping
