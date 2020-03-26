@@ -42,4 +42,5 @@ Création d'une application mono-poste qui permet de gérer l'occupation d'un ca
                    
         
 **MOA** Arnaud Martin 
+
 **MOE** Elèves en charge du projet (nous) 
