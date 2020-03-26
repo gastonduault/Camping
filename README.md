@@ -18,17 +18,16 @@ Création d'une application mono-poste qui permet de gérer l'occupation d'un ca
 
 ![alt text](Bet3.jpg "Bête à Corne")
 
-## SWOT
 
-| Strenght | Weakness |
-| ---      |  -------: |
-| Base de programmation en Java   | Méconnaissance de la gestion d'un camping  |
-| Ecoute du client |  Méconnaissance du logiciel TRAC/SVN |
-| Expérience travail d'équipe/projet   |      |
-| Base en gestion de projet |               |
-| Outil de réunion (Discord) |              |
-| Opportunities | Threats |
-| ---           | -----:|
-| Outils de gestion de projet à disposition | Temps |
-|                         | Confinement |
-|                         | Connexion Internet |
+**Parties prenantes :**
+*  Commune
+*  Commerces alentours 
+*  Personnels du camping et saisonniers
+*  Tourisme
+*  Voisinnages du camping
+                  
+
+**Enjeux**
+*  Economiques : Meilleur gestion du camping et donc une rentabilité accrue 
+                   
+                   
