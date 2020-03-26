@@ -40,4 +40,6 @@ Création d'une application mono-poste qui permet de gérer l'occupation d'un ca
 **Enjeux**
 *  Economiques : Meilleur gestion du camping et donc une rentabilité accrue 
                    
-                   
+        
+**MOA** Arnaud Martin 
+**MOE** Elèves en charge du projet (nous) 
