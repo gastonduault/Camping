@@ -1,0 +1,9 @@
+**Spécifiques** : L'objectif est simple, nous devons créer une application mono-poste afin de gérer l'occupation des emplacements dans un camping.
+
+**Mesurables** : qualitatif : utilité et performance du programme
+
+**Atteignables** : Aprés réunion l'ensemble de l'équipe se sent en capacité de créer et permettre l'aboutissement du projet
+
+**Realisables** : Ce projet permet une meilleure gestion du projet,ce qui apporte une cohérence et de la pertinence pour les acteurs du projet.
+
+**Time limites de temps** : Ce projet doit être aboutie pour le 24 avril 2020
