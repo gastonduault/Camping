@@ -24,7 +24,7 @@ Création d'une application mono-poste qui permet de gérer l'occupation d'un ca
 | -------- | -------- | ------------- | ------- |
 | Base de programmation en Java | Méconnaissance de la gestion d'un camping | Outil de gestion de projet à disposition | Temps |
 | Ecoute du client | Méconnaissance du logiciel TRAC/SVN |      | Confinement |
-| Expérience travail d'équipe/projet |  |   | Connexion Internet |
+| Expérience travail d'équipe/projet | Premier projet Java |   | Connexion Internet |
 | Base en gestion de projet |  |  |   |
 | Outils de réunion (Discord) |  |  |  |
 
