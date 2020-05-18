@@ -58,7 +58,7 @@ public class Reservation {
         }
     }
 
-    public void modifierReservation(Client c, Int nbR){
+    public void modifierReservation(Client c, int nbR){
         mesres.put(c, nbR);
     }
 
