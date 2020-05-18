@@ -58,8 +58,8 @@ public class Reservation {
         }
     }
 
-    public void modifierReservation(Client c, Int nbR){
-        mesres.put(c, nbR);
+    public void modifierReservation(Client client, int nbR){
+        mesres.put(client, nbR);
     }
 
     public void afficher(){
@@ -69,7 +69,8 @@ public class Reservation {
         Map.Entry<Client, Integer> ent;
 
         while (it.hasNext()){
-            System.out.println(this.nbReservation );
+            System.out.println(this.numeroReservation);
+            client.afficher();
         }
     }
 }
