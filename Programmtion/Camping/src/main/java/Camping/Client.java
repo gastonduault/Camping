@@ -13,6 +13,10 @@ public class Client {
         email = e;
     }
 
+    public String toString() {
+        return this.getNom()+" - "+this.getPrenom()+" - "+this.getPrenom();
+    }
+
     public String getNom() {
         return nom;
     }
@@ -23,5 +27,9 @@ public class Client {
 
     public String getEmail() {
         return email;
+    }
+
+    public void afficher(){
+        System.out.println(this.toString());
     }
 }
