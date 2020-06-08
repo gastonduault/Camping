@@ -1,43 +1,167 @@
 package Camping;
 
+import java.io.File;
+
 import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.canvas.Canvas;
+import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
-public class FenPrincipal extends Stage{
+public class FenPrincipal extends Stage {
 
-    Color bleu = Color.web("#5A68D3");
-    Color blanc = Color.web("#E9E6FF");
-    Color bleuF = Color.web("#00172F");
-    Color vert = Color.web("#30CE52");
-    Color rouge = Color.web("#EF383C");
+  Color bleu = Color.web("#5A68D3");
+  Color blanc = Color.web("#E9E6FF");
+  Color bleuF = Color.web("#B5C7F8");
+  Color vert = Color.web("#30CE52");
+  Color rouge = Color.web("#EF383C");
 
-    public FenPrincipal(){
-        this.setTitle("Camping");
-        this.setResizable(true);
-        this.setMinWidth(500);
-        this.setMinHeight(700);
-        Scene fenPrin = new Scene(contenu());
-        this.setScene(fenPrin);
-		this.sizeToScene();
-    }
+  public FenPrincipal() {
+    this.setTitle("Camping");
+    this.setResizable(true);
+    this.setMinWidth(800);
+    this.setMinHeight(600);
+    Scene fenPrin = new Scene(contenu());
+    this.setScene(fenPrin);
+    this.sizeToScene();
+  }
 
-    Parent contenu(){
-        Circle recherche = new Circle(30, 30, 20);
-        Rectangle fond = new Rectangle(0 , 0, 500, 500);
-        
-        recherche.setFill(blanc);
+  Parent contenu() {
+    Rectangle fond = new Rectangle(0, 0, 800, 600);
+    fond.setFill(bleuF);
+    fond.setLayoutX(0);
+    fond.setLayoutY(0);
 
-        fond.setFill(bleu);
-        fond.setLayoutX(0);
-        fond.setLayoutY(0);
+    Circle rondloupe = new Circle(40, 40, 20);
+    rondloupe.setFill(blanc);
+   /* final String imgrecherche = new File("source-code.png").toURI().toString();
+    final ImageView image = new ImageView(imgrecherche);
+    image.setLayoutX(0);
+    image.setLayoutY(0);
+    Pane imgGroup = new Pane();
+    imgGroup.getChildren().setAll(image);*/
 
-        Group total = new Group();
-        total.getChildren().addAll(fond, recherche);
-        return total;
+    Rectangle carrevert =new Rectangle(20, 160, 30, 30);
+    carrevert.setFill(vert);
+    Rectangle carrenoir = new Rectangle(20, 210, 30, 30);
+    carrenoir.setFill(Color.BLACK); 
+    Rectangle carrerouge = new Rectangle(20, 260, 30, 30);
+    carrerouge.setFill(rouge);
+    Label occupe = new Label("Occupé");
+    occupe.setLayoutX(60);
+    occupe.setLayoutY(170);
+    Label libre = new Label("Libre");
+    libre.setLayoutX(60);
+    libre.setLayoutY(220);
+    Label reserve = new Label("Réservé");
+    reserve.setLayoutX(60);
+    reserve.setLayoutY(270);
+
+    Circle ajouter = new Circle(35, 410, 20);
+    ajouter.setFill(blanc);
+    Circle supprimer = new Circle(35, 470, 20);
+    supprimer.setFill(blanc);
+    
+    Rectangle e1 = new Rectangle(20, 20);
+    Rectangle e2 = new Rectangle(20, 20);
+    Rectangle e3 = new Rectangle(20, 20);
+    Rectangle e4 = new Rectangle(20, 20);
+    Rectangle e5 = new Rectangle(20, 20);
+    Rectangle e6 = new Rectangle(20, 20);
+    Rectangle e7 = new Rectangle(20, 20);
+    Rectangle e8 = new Rectangle(20, 20);
+    Rectangle e9 = new Rectangle(20, 20);
+    Rectangle e10 = new Rectangle(20, 20);
+    Rectangle e11 = new Rectangle(20, 20);
+    Rectangle e12 = new Rectangle(20, 20);
+    Rectangle e13 = new Rectangle(20, 20);
+    Rectangle e14 = new Rectangle(20, 20);
+    Rectangle e15 = new Rectangle(20, 20);
+    Rectangle e16 = new Rectangle(20, 20);
+    Rectangle e17 = new Rectangle(20, 20);
+    Rectangle e18 = new Rectangle(20, 20);
+    Rectangle e19 = new Rectangle(20, 20);
+    Rectangle e20 = new Rectangle(20, 20);
+    Rectangle e21 = new Rectangle(20, 20);
+    Rectangle e22 = new Rectangle(20, 20);
+    Rectangle e23 = new Rectangle(20, 20);
+    Rectangle e24 = new Rectangle(20, 20);
+    Rectangle e25 = new Rectangle(20, 20);
+    Rectangle e26 = new Rectangle(20, 20);
+    Rectangle e27 = new Rectangle(20, 20);
+    Rectangle e28 = new Rectangle(20, 20);
+    Rectangle e29 = new Rectangle(20, 20);
+    Rectangle e30 = new Rectangle(20, 20);
+    Rectangle e31 = new Rectangle(20, 20);
+    Rectangle e32 = new Rectangle(20, 20);
+    Rectangle e33 = new Rectangle(20, 20);
+
+    GridPane plan = new GridPane();
+    plan.setGridLinesVisible(false);
+    plan.setLayoutX(200);
+    plan.setLayoutY(100);
+    plan.add(e1, 6, 0);
+    plan.add(e2, 7, 0);
+    plan.add(e3, 8, 0);
+    plan.add(e4, 0, 1);
+    plan.add(e5, 1, 1);
+    plan.add(e6, 2, 1);
+    plan.add(e7, 3, 1);
+    plan.add(e8, 4, 1);
+    plan.add(e9, 5, 1);
+    plan.add(e10, 7, 1);
+    plan.add(e11, 8, 1);
+    plan.add(e12, 0, 2);
+    plan.add(e13, 1, 2);
+    plan.add(e14, 8, 2);
+    plan.add(e15, 0, 3);
+    plan.add(e16, 1, 3);
+    plan.add(e17, 8, 3);
+    plan.add(e18, 0, 4);
+    plan.add(e19, 1, 4);
+    plan.add(e20, 2, 4);
+    plan.add(e21, 3, 4);
+    plan.add(e22, 4, 4);
+    plan.add(e23, 7, 4);
+    plan.add(e24, 8, 4);
+    plan.add(e25, 0, 5);
+    plan.add(e26, 1, 5);
+    plan.add(e27, 2, 5);
+    plan.add(e28, 3, 5);
+    plan.add(e29, 4, 5);
+    plan.add(e30, 5, 5);
+    plan.add(e31, 6, 5);
+    plan.add(e32, 7, 5);
+    plan.add(e33, 8, 5);
+    plan.setHgap(50);
+    plan.setVgap(50);
+
+    Image lac = new Image(getClass().getResource("lac.png").toString());
+    ImageView imageView = new ImageView(lac);
+    imageView.setFitWidth(375);
+    imageView.setFitHeight(225);
+    imageView.setLayoutX(350);
+    imageView.setLayoutY(150);
+
+    Group recherche = new Group();
+    recherche.getChildren().addAll(rondloupe);
+
+    Group legende = new Group();
+    legende.getChildren().addAll(carrevert, carrenoir, carrerouge, occupe, libre, reserve, ajouter, supprimer);
+
+    Group carte = new Group();
+    carte.getChildren().addAll(plan, imageView);
+  
+    Group total = new Group();
+    total.getChildren().addAll(fond, recherche, legende, carte);
+    return total;
       }
 }
