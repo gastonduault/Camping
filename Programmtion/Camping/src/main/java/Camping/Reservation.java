@@ -10,8 +10,8 @@ import java.util.Set;
 
 public class Reservation {
 
-    private Date dateArrivee;
-    private Date dateDepart;
+    private GestionDate dateArrivee;
+    private GestionDate dateDepart;
     private Client client;
     private int nbReservation = 0;
     private int numeroReservation;
@@ -19,7 +19,7 @@ public class Reservation {
     private ArrayList<Emplacement> mesEmplacements;
     private final int MAX = 30;
 
-    public Reservation(Date dd , Date da) {
+    public Reservation(GestionDate dd , GestionDate da) {
         nbReservation++;
         numeroReservation = nbReservation;
         dateArrivee = da;
@@ -69,7 +69,7 @@ public class Reservation {
         }
     }
 
-    public void modifierReservation(Client client, int nbR, Date dateD, Date dateA){
+    public void modifierReservation(Client client, int nbR, GestionDate dateD, GestionDate dateA){
         mesres.put(client, nbR);
         dateDepart = dateD;
         dateArrivee = dateA;
