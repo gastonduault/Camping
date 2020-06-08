@@ -1,16 +1,13 @@
 package Camping;
 
-import java.io.File;
 
 import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.canvas.Canvas;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
@@ -42,12 +39,12 @@ public class FenPrincipal extends Stage {
 
     Circle rondloupe = new Circle(40, 40, 20);
     rondloupe.setFill(blanc);
-   /* final String imgrecherche = new File("source-code.png").toURI().toString();
-    final ImageView image = new ImageView(imgrecherche);
-    image.setLayoutX(0);
-    image.setLayoutY(0);
-    Pane imgGroup = new Pane();
-    imgGroup.getChildren().setAll(image);*/
+    Image loupe = new Image(getClass().getResource("images/source-code.png").toString());
+    ImageView loupeIV = new ImageView(loupe);
+    loupeIV.setLayoutX(25);
+    loupeIV.setLayoutY(25);
+    loupeIV.setFitHeight(30);
+    loupeIV.setFitWidth(30);
 
     Rectangle carrevert =new Rectangle(20, 160, 30, 30);
     carrevert.setFill(vert);
@@ -67,8 +64,21 @@ public class FenPrincipal extends Stage {
 
     Circle ajouter = new Circle(35, 410, 20);
     ajouter.setFill(blanc);
+    Image plus = new Image(getClass().getResource("images/+.png").toString());
+    ImageView plusIV = new ImageView(plus);
+    plusIV.setFitWidth(30);
+    plusIV.setFitHeight(30);
+    plusIV.setLayoutX(20);
+    plusIV.setLayoutY(395);
+
     Circle supprimer = new Circle(35, 470, 20);
     supprimer.setFill(blanc);
+    Image moin = new Image(getClass().getResource("images/-.png").toString());
+    ImageView moinIV = new ImageView(moin);
+    moinIV.setFitWidth(30);
+    moinIV.setFitHeight(30);
+    moinIV.setLayoutX(20);
+    moinIV.setLayoutY(455);
     
     Rectangle e1 = new Rectangle(20, 20);
     Rectangle e2 = new Rectangle(20, 20);
@@ -144,21 +154,21 @@ public class FenPrincipal extends Stage {
     plan.setHgap(50);
     plan.setVgap(50);
 
-    Image lac = new Image(getClass().getResource("lac.png").toString());
-    ImageView imageView = new ImageView(lac);
-    imageView.setFitWidth(375);
-    imageView.setFitHeight(225);
-    imageView.setLayoutX(350);
-    imageView.setLayoutY(150);
+    Image lac = new Image(getClass().getResource("images/lac.png").toString());
+    ImageView lacIV = new ImageView(lac);
+    lacIV.setFitWidth(375);
+    lacIV.setFitHeight(225);
+    lacIV.setLayoutX(350);
+    lacIV.setLayoutY(150);
 
     Group recherche = new Group();
-    recherche.getChildren().addAll(rondloupe);
+    recherche.getChildren().addAll(rondloupe, loupeIV);
 
     Group legende = new Group();
-    legende.getChildren().addAll(carrevert, carrenoir, carrerouge, occupe, libre, reserve, ajouter, supprimer);
+    legende.getChildren().addAll(carrevert, carrenoir, carrerouge, occupe, libre, reserve, ajouter, supprimer, plusIV, moinIV);
 
     Group carte = new Group();
-    carte.getChildren().addAll(plan, imageView);
+    carte.getChildren().addAll(plan, lacIV);
   
     Group total = new Group();
     total.getChildren().addAll(fond, recherche, legende, carte);
