@@ -5,12 +5,15 @@ public class Client {
     private String nom;
     private String prenom;
     private String email;
+    private int numClient;
+    private int nbClient = 1;
 
 
     public Client(String n, String p, String e){
         nom = n;
         prenom = p;
         email = e;
+        nbClient += 1;
     }
 
     public String toString() {
@@ -27,6 +30,18 @@ public class Client {
 
     public String getEmail() {
         return email;
+    }
+
+    public void setNom(String nom){
+        this.nom = nom;
+    }
+
+    public void setPrenom(String prenom){
+        this.prenom = prenom;
+    }
+
+    public void setEmail(String email){
+        this.email = email;
     }
 
     public void afficher(){

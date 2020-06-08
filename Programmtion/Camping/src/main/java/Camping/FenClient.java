@@ -1,17 +1,13 @@
 package Camping;
 
+import javafx.event.ActionEvent;
 import javafx.geometry.Insets;
-import javafx.geometry.Pos;
-import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Priority;
-import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -27,7 +23,9 @@ public class FenClient extends Stage {
     private Label pClient = new Label("Prénom*");
     private Label eClient = new Label("Email*");
 
+    private Button submit = new Button("Créer");
 
+    private Client c = new Client(null, null, null);
 
     public FenClient() {
         this.setTitle("Camping");
@@ -58,6 +56,21 @@ public class FenClient extends Stage {
         prenomClient.setMaxWidth(120);
         root.add(prenomClient, 1, 2);
 
+        root.add(eClient, 0, 3);
+        emailClient.setMaxWidth(120);
+        root.add(emailClient, 1, 3);
+
+        root.add(submit, 0, 4);
+        submit.setOnAction(e -> {creerClient(e);});
+
         return root;
+    }
+
+    private void creerClient(ActionEvent e){
+        if (nomClient.getCharacters().length() > 2 && prenomClient.getCharacters().length() > 2 && emailClient.getCharacters().length() > 2){
+            c.setNom(String.valueOf(nomClient.getCharacters()));
+            c.setPrenom(String.valueOf(prenomClient.getCharacters()));
+            c.setEmail(String.valueOf(emailClient.getCharacters()));
+        }
     }
 }
