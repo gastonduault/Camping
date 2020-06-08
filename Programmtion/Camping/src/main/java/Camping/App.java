@@ -13,7 +13,7 @@ public class App extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-        primaryStage = new FenPrincipal();
+        primaryStage = new FenAddClient();
         primaryStage.show();
     }
 

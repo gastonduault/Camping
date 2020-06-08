@@ -1,4 +1,4 @@
-package application;
+package Camping;
 
 import java.util.Calendar;
 import java.util.Date;
