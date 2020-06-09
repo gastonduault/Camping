@@ -20,6 +20,9 @@ public class Client {
         return this.getNom()+" - "+this.getPrenom()+" - "+this.getPrenom();
     }
 
+    public int getNum(){
+        return numClient;
+    }
     public String getNom() {
         return nom;
     }
