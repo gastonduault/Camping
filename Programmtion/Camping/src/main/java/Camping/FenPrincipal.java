@@ -1,9 +1,10 @@
 package Camping;
 
-
+import javafx.event.ActionEvent;
 import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -21,12 +22,15 @@ public class FenPrincipal extends Stage {
   Color vert = Color.web("#30CE52");
   Color rouge = Color.web("#EF383C");
 
+  private Button fermer = new Button("Quitter");
+
   public FenPrincipal() {
     this.setTitle("Camping");
     this.setResizable(true);
     this.setMinWidth(800);
     this.setMinHeight(600);
     Scene fenPrin = new Scene(contenu());
+
     this.setScene(fenPrin);
     this.sizeToScene();
   }
@@ -161,8 +165,12 @@ public class FenPrincipal extends Stage {
     lacIV.setLayoutX(350);
     lacIV.setLayoutY(150);
 
+    fermer.setLayoutX(700);
+    fermer.setLayoutY(550);
+    fermer.setOnAction(e -> {quitter(e);});
+
     Group recherche = new Group();
-    recherche.getChildren().addAll(rondloupe, loupeIV);
+    recherche.getChildren().addAll(rondloupe, loupeIV, fermer);
 
     Group legende = new Group();
     legende.getChildren().addAll(carrevert, carrenoir, carrerouge, occupe, libre, reserve, ajouter, supprimer, plusIV, moinIV);
@@ -171,7 +179,14 @@ public class FenPrincipal extends Stage {
     carte.getChildren().addAll(plan, lacIV);
   
     Group total = new Group();
-    total.getChildren().addAll(fond, recherche, legende, carte);
+    total.getChildren().addAll(fond, recherche, legende, carte, fermer);
     return total;
+    }
+
+    private void quitter(ActionEvent e){
+      if(e.getSource()==fermer){
+          System.exit(0);;
       }
+  }
+    
 }
