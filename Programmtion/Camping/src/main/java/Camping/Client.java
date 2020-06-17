@@ -1,19 +1,23 @@
 package Camping;
 
+import java.util.ArrayList;
+
 public class Client {
     
     private String nom;
     private String prenom;
     private String email;
     private int numClient;
-    private static int nbClient = 1;
+    private int nbClient = 0;
+    public static ArrayList<Client> listeClient = new ArrayList<Client>();
 
-
-    public Client(String n, String p, String e){
+    public Client(String n, String p, String e) {
         nom = n;
         prenom = p;
         email = e;
         nbClient += 1;
+        numClient = nbClient;
+        listeClient.add(this);
     }
 
     public String toString() {

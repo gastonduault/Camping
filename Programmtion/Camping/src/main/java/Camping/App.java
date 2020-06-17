@@ -12,7 +12,7 @@ public class App extends Application {
     public void start(Stage primaryStage) {
         MobilHome m1 = new MobilHome(30, 12, 0, 4);
         Tente t1 = new Tente(24, 9, 3, 4, true , true);
-        primaryStage = new FenReservation();
+        primaryStage = new FenClient();
         primaryStage.show();
     }
 

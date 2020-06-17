@@ -26,10 +26,14 @@ public class FenClient extends Stage {
 
     private Text title = new Text (10, 20, "Ajouter un client");
     private Label numClient = new Label("Numéro");
-    private Label nClient = new Label("Nom*");
-    private Label pClient = new Label("Prénom*");
-    private Label eClient = new Label("Email*");
+    private Label nClient = new Label("Nom");
+    private Label pClient = new Label("Prénom");
+    private Label eClient = new Label("Email");
     private Label obligatoire = new Label(" * : Champs obligatoires");
+
+    private Label erreurNom = new Label("Nom incorrect !");
+    private Label erreurPrenom = new Label("Prénom incorrect !");
+    private Label erreurEmail = new Label("Email incorrect !");
 
     private Button submit = new Button("Créer");
 
@@ -63,15 +67,24 @@ public class FenClient extends Stage {
 
         root.add(nClient, 0, 2);
         nomClient.setMaxWidth(140);
+        nomClient.setPromptText("*");
+        erreurNom.setTextFill(Color.TRANSPARENT);
         root.add(nomClient, 1, 2);
+        root.add(erreurNom, 2, 2);
 
         root.add(pClient, 0, 3);
         prenomClient.setMaxWidth(140);
+        prenomClient.setPromptText("*");
+        erreurPrenom.setTextFill(Color.TRANSPARENT);
         root.add(prenomClient, 1, 3);
+        root.add(erreurPrenom, 2, 3);
 
         root.add(eClient, 0, 4);
         emailClient.setMaxWidth(140);
+        emailClient.setPromptText("*");
+        erreurEmail.setTextFill(Color.TRANSPARENT);
         root.add(emailClient, 1, 4);
+        root.add(erreurEmail, 2, 4);
 
         root.add(submit, 0, 5);
         submit.setOnAction(e -> {creerClient(e);});
@@ -81,26 +94,34 @@ public class FenClient extends Stage {
     }
 
     private void creerClient(ActionEvent e){
+        
         boolean testOk = true;
         if (nomClient.getText().length() > 2 && testMot(nomClient.getText())){
-            nClient.setTextFill(Color.BLACK); 
+            nClient.setTextFill(Color.BLACK);
+            erreurNom.setTextFill(Color.TRANSPARENT);
         }
         else{
             nClient.setTextFill(Color.RED);
+            erreurNom.setTextFill(Color.RED);
             testOk = false;
         }
+
         if (prenomClient.getText().length() > 2 && testMot(prenomClient.getText())){
             pClient.setTextFill(Color.BLACK);
+            erreurPrenom.setTextFill(Color.TRANSPARENT);
         }
         else{
             pClient.setTextFill(Color.RED);
+            erreurPrenom.setTextFill(Color.RED);
             testOk = false;
         }
         if (emailClient.getText().length() > 2 && emailClient.getText().contains("@")){
             eClient.setTextFill(Color.BLACK);
+            erreurEmail.setTextFill(Color.TRANSPARENT);
         }
         else{
             eClient.setTextFill(Color.RED);
+            erreurEmail.setTextFill(Color.RED);
             testOk = false;
         }
         if (testOk == true){

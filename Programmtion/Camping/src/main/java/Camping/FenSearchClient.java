@@ -1,6 +1,7 @@
 package Camping;
 
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Rectangle;
 import javafx.event.EventHandler;
@@ -46,6 +47,7 @@ public class FenSearchClient extends Stage {
         croixIV.setLayoutX(88);
         croixIV.setLayoutY(33);
         annuler.setOnMouseClicked(new EventHandler<MouseEvent>()
+        
     {
         @Override
         public void handle(MouseEvent t) {
