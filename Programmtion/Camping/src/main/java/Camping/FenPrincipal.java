@@ -4,6 +4,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Rectangle;
 import javafx.event.EventHandler;
 import javafx.event.ActionEvent;
+import javafx.scene.Cursor;
 import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -25,7 +26,6 @@ public class FenPrincipal extends Stage {
   Color rouge = Color.web("#EF383C");
 
   static private FenSearch fsearch = new FenSearch();
-  
 
   private Button fermer = new Button("Quitter");
 
@@ -54,7 +54,11 @@ public class FenPrincipal extends Stage {
     loupeIV.setLayoutY(25);
     loupeIV.setFitHeight(30);
     loupeIV.setFitWidth(30);
-
+    
+    rondloupe.setCursor(Cursor.HAND);
+    loupeIV.setCursor(Cursor.HAND);
+    
+    
     loupeIV.setOnMouseClicked(new EventHandler<MouseEvent>()
     {
         @Override
@@ -71,7 +75,8 @@ public class FenPrincipal extends Stage {
             close();
         }
     });
-
+    
+    
 
     Rectangle carrevert = new Rectangle(20, 160, 30, 30);
     carrevert.setFill(vert);
@@ -89,7 +94,6 @@ public class FenPrincipal extends Stage {
     reserve.setLayoutX(60);
     reserve.setLayoutY(270);
 
-
     Circle ajouter = new Circle(35, 410, 20);
     ajouter.setFill(blanc);
     Image plus = new Image(getClass().getResource("images/+.png").toString());
@@ -98,7 +102,18 @@ public class FenPrincipal extends Stage {
     plusIV.setFitHeight(30);
     plusIV.setLayoutX(20);
     plusIV.setLayoutY(395);
-
+    
+    ajouter.setCursor(Cursor.HAND);
+    plusIV.setCursor(Cursor.HAND);
+    
+    ajouter.setOnMouseClicked(new EventHandler<MouseEvent>(){
+    	@Override
+        public void handle(MouseEvent t) {
+            App.startClient();
+        }
+    
+	});
+    
     Circle supprimer = new Circle(35, 470, 20);
     supprimer.setFill(blanc);
     Image moin = new Image(getClass().getResource("images/-.png").toString());
@@ -107,7 +122,17 @@ public class FenPrincipal extends Stage {
     moinIV.setFitHeight(30);
     moinIV.setLayoutX(20);
     moinIV.setLayoutY(455);
-
+    
+    supprimer.setOnMouseClicked(new EventHandler<MouseEvent>(){
+    	@Override
+        public void handle(MouseEvent t) {
+            App.startSup();
+        }
+    
+	});
+   
+    supprimer.setCursor(Cursor.HAND);
+    moinIV.setCursor(Cursor.HAND);
     Rectangle e1 = new Rectangle(20, 20);
     Rectangle e2 = new Rectangle(20, 20);
     Rectangle e3 = new Rectangle(20, 20);
