@@ -63,6 +63,14 @@ public class FenPrincipal extends Stage {
             close();
         }
     });
+    rondloupe.setOnMouseClicked(new EventHandler<MouseEvent>()
+    {
+        @Override
+        public void handle(MouseEvent t) {
+            fsearch.show();
+            close();
+        }
+    });
 
 
     Rectangle carrevert = new Rectangle(20, 160, 30, 30);
@@ -204,5 +212,4 @@ public class FenPrincipal extends Stage {
           System.exit(0);;
       }
   }
-    
 }
