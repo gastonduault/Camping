@@ -39,6 +39,7 @@ public class Tente extends Emplacement{
         if (electricite){
             elecDispo = "Oui";
         }
-        return super.toString() + "\nNombre de personnes : " + this.nbPersonne + "\nEau : " + eauDispo + "\nElectricité : " + elecDispo;
+        return "Type : Tente \n" + super.toString() + "\nNombre de personnes : " + this.nbPersonne + "\nEau : " + eauDispo + "\nElectricité : " + elecDispo;
     }
+
 }

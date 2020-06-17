@@ -1,5 +1,7 @@
 package Camping;
 
+import java.util.ArrayList;
+
 abstract class Emplacement {
 
     private int numeroEmplacement;
@@ -8,6 +10,7 @@ abstract class Emplacement {
     private boolean estDispo;
     private int prixJour;
     private int nbVehicule;
+    public static ArrayList<Emplacement> listeEmplacement = new ArrayList<Emplacement>();
 
     // Contructeur
     public Emplacement(double surface, int prix, int vehicule){
@@ -17,6 +20,7 @@ abstract class Emplacement {
         this.prixJour = prix;
         this.nbVehicule = vehicule;
         estDispo = true;
+        listeEmplacement.add(this);
     }
 
     // Guetteur

@@ -10,7 +10,9 @@ public class App extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-        primaryStage = new FenClient();
+        MobilHome m1 = new MobilHome(30, 12, 0, 4);
+        Tente t1 = new Tente(24, 9, 3, 4, true , true);
+        primaryStage = new FenReservation();
         primaryStage.show();
     }
 
