@@ -23,6 +23,7 @@ public class FenSearch extends Stage{
     Color rouge = Color.web("#EF383C");
 
     static private FenPrincipal fprincipal = new FenPrincipal();
+    static private FenSearchClient fSearchclient = new FenSearchClient();
   
     public FenSearch() {
       this.setTitle("Camping");
@@ -66,8 +67,8 @@ public class FenSearch extends Stage{
     {
         @Override
         public void handle(MouseEvent t) {
-          Scene fenPrin = new Scene(client());
-          
+          fSearchclient.show();
+          close();
         }
     });
         Rectangle carreEmplacement = new Rectangle(200,200);
