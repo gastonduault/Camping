@@ -1,5 +1,8 @@
 package Camping;
 
+import javafx.scene.input.MouseEvent;
+import javafx.scene.shape.Rectangle;
+import javafx.event.EventHandler;
 import javafx.event.ActionEvent;
 import javafx.scene.Group;
 import javafx.scene.Parent;
@@ -11,7 +14,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
-import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
 public class FenPrincipal extends Stage {
@@ -21,6 +23,9 @@ public class FenPrincipal extends Stage {
   Color bleuF = Color.web("#B5C7F8");
   Color vert = Color.web("#30CE52");
   Color rouge = Color.web("#EF383C");
+
+  static private FenSearch fsearch = new FenSearch();
+  
 
   private Button fermer = new Button("Quitter");
 
@@ -50,10 +55,20 @@ public class FenPrincipal extends Stage {
     loupeIV.setFitHeight(30);
     loupeIV.setFitWidth(30);
 
-    Rectangle carrevert =new Rectangle(20, 160, 30, 30);
+    loupeIV.setOnMouseClicked(new EventHandler<MouseEvent>()
+    {
+        @Override
+        public void handle(MouseEvent t) {
+            fsearch.show();
+            close();
+        }
+    });
+
+
+    Rectangle carrevert = new Rectangle(20, 160, 30, 30);
     carrevert.setFill(vert);
     Rectangle carrenoir = new Rectangle(20, 210, 30, 30);
-    carrenoir.setFill(Color.BLACK); 
+    carrenoir.setFill(Color.BLACK);
     Rectangle carrerouge = new Rectangle(20, 260, 30, 30);
     carrerouge.setFill(rouge);
     Label occupe = new Label("Occupé");
@@ -65,6 +80,7 @@ public class FenPrincipal extends Stage {
     Label reserve = new Label("Réservé");
     reserve.setLayoutX(60);
     reserve.setLayoutY(270);
+
 
     Circle ajouter = new Circle(35, 410, 20);
     ajouter.setFill(blanc);
@@ -83,7 +99,7 @@ public class FenPrincipal extends Stage {
     moinIV.setFitHeight(30);
     moinIV.setLayoutX(20);
     moinIV.setLayoutY(455);
-    
+
     Rectangle e1 = new Rectangle(20, 20);
     Rectangle e2 = new Rectangle(20, 20);
     Rectangle e3 = new Rectangle(20, 20);
@@ -170,7 +186,7 @@ public class FenPrincipal extends Stage {
     fermer.setOnAction(e -> {quitter(e);});
 
     Group recherche = new Group();
-    recherche.getChildren().addAll(rondloupe, loupeIV, fermer);
+    recherche.getChildren().addAll(rondloupe, loupeIV);
 
     Group legende = new Group();
     legende.getChildren().addAll(carrevert, carrenoir, carrerouge, occupe, libre, reserve, ajouter, supprimer, plusIV, moinIV);
