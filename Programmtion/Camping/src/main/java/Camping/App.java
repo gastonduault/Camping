@@ -1,6 +1,4 @@
-package application;
-
-
+package Camping;
 
 import javafx.application.Application;
 import javafx.collections.FXCollections;
@@ -10,15 +8,29 @@ import javafx.stage.Stage;
 public class App extends Application{
 
 	static private FenetreSupr fsup		= new FenetreSupr();
-	
+	static private FenReservation freserv = new FenReservation();
+	static private FenClient	fclient = new FenClient();
 	
 	static private ObservableList<String> lesClient = FXCollections.observableArrayList("Thomas","Vincent","Ewen","Clement","Gaston");
 	static private ObservableList<String> lesEmplacement = FXCollections.observableArrayList("emp1","emp2","emp3","emp4","emp5");
 	static private ObservableList<String> lesReserv = FXCollections.observableArrayList("reserv1","reserv2","reserv3","reserv4","reserv5");
-	public void start(Stage f) {
+	/*public void start(Stage f) {
 		fsup.actualiserListe(App.lesClient);
 		f = fsup;
 		f.show();
+	}*/
+	public void start(Stage f) {
+		f = new FenPrincipal();
+		f.show();
+	}
+	public static void startSup() {
+		fsup.show();
+	}
+	public static void startReserv() {
+		freserv.show();
+	}
+	public static void startClient() {
+		fclient.show();
 	}
 	public static ObservableList<String> getLesClients() {
 		return App.lesClient;
@@ -31,7 +43,6 @@ public class App extends Application{
 	}
 	public static void main(String[] args) {
 		Application.launch(args);
-		
 	}
 	
 	public static void supprimerClient(int i) {
