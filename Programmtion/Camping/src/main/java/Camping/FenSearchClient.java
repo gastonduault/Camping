@@ -22,8 +22,6 @@ public class FenSearchClient extends Stage {
     Color bleuF = Color.web("#B5C7F8");
     Color vert = Color.web("#30CE52");
     Color rouge = Color.web("#EF383C");
-
-    private static Client c1 = new Client("duault", "gaston", "gaston.duault@univ-rennes1.fr");
     
     static private FenSearch fsearch = new FenSearch();
   
@@ -37,6 +35,12 @@ public class FenSearchClient extends Stage {
       Scene fenPrin = new Scene(contenu());
       this.setScene(fenPrin);
       this.sizeToScene();
+    }
+
+    public void actualiserListe(){
+      for(int i=0; i<=Client.getNbClient(); i++){
+        Liste.getItems().add(Client.listeClient.get(i).toStringComplet());
+      }
     }
 
     Parent contenu(){
@@ -67,8 +71,7 @@ public class FenSearchClient extends Stage {
 
         Liste.setLayoutX(200);
         Liste.setLayoutY(300);
-        Liste.getItems().add(c1.toString());
-        Liste.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);	
+        Liste.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
 
         Group hautpage = new Group();
         hautpage.getChildren().addAll(annuler, croixIV, client);
