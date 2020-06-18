@@ -77,17 +77,14 @@ public class FenPrincipal extends Stage {
 
     Rectangle carrevert = new Rectangle(20, 160, 30, 30);
     carrevert.setFill(vert);
-    Rectangle carrenoir = new Rectangle(20, 210, 30, 30);
-    carrenoir.setFill(Color.BLACK);
+
     Rectangle carrerouge = new Rectangle(20, 260, 30, 30);
     carrerouge.setFill(rouge);
-    Label occupe = new Label("Occupé");
-    occupe.setLayoutX(60);
-    occupe.setLayoutY(170);
-    Label libre = new Label("Libre");
-    libre.setLayoutX(60);
-    libre.setLayoutY(220);
-    Label reserve = new Label("Réservé");
+    Label Libre = new Label("Libre");
+    Libre.setLayoutX(60);
+    Libre.setLayoutY(170);
+   
+    Label reserve = new Label("réservé");
     reserve.setLayoutX(60);
     reserve.setLayoutY(270);
 
@@ -222,7 +219,7 @@ public class FenPrincipal extends Stage {
     recherche.getChildren().addAll(rondloupe, loupeIV);
 
     Group legende = new Group();
-    legende.getChildren().addAll(carrevert, carrenoir, carrerouge, occupe, libre, reserve, ajouter, supprimer, plusIV, moinIV);
+    legende.getChildren().addAll(carrevert, carrerouge, Libre, reserve, ajouter, supprimer, plusIV, moinIV);
 
     Group carte = new Group();
     carte.getChildren().addAll(plan, lacIV);
