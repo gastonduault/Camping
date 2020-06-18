@@ -22,8 +22,11 @@ public class MobilHome extends Emplacement{
         this.nbLit = lit;
     }
 
-    public String toString() {
+    public String toStringComplet() {
         return "Type : Mobil-Home \n" + super.toString() + "\nNombre de lit : " + this.nbLit;
     }
 
+    public String toString(){
+        return super.toString() + " : Mobil-Home";
+    }
 }

@@ -19,7 +19,7 @@ import javafx.stage.Stage;
 
 public class FenPrincipal extends Stage {
 
-  private static FenClient fClient = new FenClient();
+  private static FenReservation fReservation = new FenReservation();
   private static FenetreSupr fSupr = new FenetreSupr();
   private static FenSearch fSearch = new FenSearch();
 
@@ -115,7 +115,7 @@ public class FenPrincipal extends Stage {
     ajouter.setOnMouseClicked(new EventHandler<MouseEvent>(){
     	@Override
         public void handle(MouseEvent t) {
-            fClient.show();
+            fReservation.show();
         }
     
 	});

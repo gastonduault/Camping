@@ -36,9 +36,9 @@ public class FenClient extends Stage {
     private Label erreurEmail = new Label("Email incorrect !");
 
     private Button submit = new Button("Créer");
+    private Button cancel = new Button("Annuler");
 
-    private Client c = new Client(null, null, null);
-    private Label numC = new Label(String.valueOf(c.getNum()));
+    private Label numC = new Label(String.valueOf(Client.getNbClient() + 1));
 
     public FenClient() {
         this.setTitle("Camping");
@@ -88,7 +88,9 @@ public class FenClient extends Stage {
 
         root.add(submit, 0, 5);
         submit.setOnAction(e -> {creerClient(e);});
-        root.add(obligatoire, 1, 5);
+        root.add(cancel, 1, 5);
+        cancel.setOnAction(e -> {fermer(e);});
+        root.add(obligatoire, 2, 5);
 
         return root;
     }
@@ -125,9 +127,9 @@ public class FenClient extends Stage {
             testOk = false;
         }
         if (testOk == true){
-            c.setNom(String.valueOf(nomClient.getCharacters()));
-            c.setPrenom(String.valueOf(prenomClient.getCharacters()));
-            c.setEmail(String.valueOf(emailClient.getCharacters()));
+            Client c = new Client(String.valueOf(nomClient.getCharacters()), String.valueOf(prenomClient.getCharacters()) , String.valueOf(emailClient.getCharacters()));
+            FenReservation.listeClient.getItems().add(c);
+            this.close();
         }
     }
 
@@ -145,5 +147,9 @@ public class FenClient extends Stage {
             i += 1;
         }
         return trouve;
+    }
+
+    private void fermer(ActionEvent e){
+        this.close();
     }
 }

@@ -30,7 +30,7 @@ public class Tente extends Emplacement{
         return electricite;
     }
 
-    public String toString() {
+    public String toStringComplet() {
         String eauDispo = "Non";
         String elecDispo = "Non";
         if (eau){
@@ -42,4 +42,7 @@ public class Tente extends Emplacement{
         return "Type : Tente \n" + super.toString() + "\nNombre de personnes : " + this.nbPersonne + "\nEau : " + eauDispo + "\nElectricité : " + elecDispo;
     }
 
+    public String toString(){
+        return super.toString() + " : Tente";
+    }
 }

@@ -10,7 +10,8 @@ abstract class Emplacement {
     private boolean estDispo;
     private int prixJour;
     private int nbVehicule;
-    public static ArrayList<Emplacement> listeEmplacement = new ArrayList<Emplacement>();
+
+    public static ArrayList<Emplacement> listeEmplacement = new ArrayList<Emplacement>();  
 
     // Contructeur
     public Emplacement(double surface, int prix, int vehicule){
@@ -68,7 +69,7 @@ abstract class Emplacement {
         this.nbVehicule = vehicule;
     }
 
-    public String toString() {
+    public String toStringComplet() {
         String dispo = "Non";
         if (estDispo){
             dispo = "Oui";
@@ -77,5 +78,8 @@ abstract class Emplacement {
          + "\nNombre de véhicule : " + this.nbVehicule + "\nDisponible : " + dispo;
     }
 
+    public String toString(){
+        return "N°" + this.getNumeroEmp();
+    }
 
 }

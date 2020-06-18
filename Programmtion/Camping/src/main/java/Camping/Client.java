@@ -8,7 +8,7 @@ public class Client {
     private String prenom;
     private String email;
     private int numClient;
-    private int nbClient = 0;
+    private static int nbClient = 0;
     public static ArrayList<Client> listeClient = new ArrayList<Client>();
 
     public Client(String n, String p, String e) {
@@ -20,12 +20,19 @@ public class Client {
         listeClient.add(this);
     }
 
-    public String toString() {
+    public String toStringComplet() {
         return this.getNom()+" - "+this.getPrenom()+" - "+this.getNum()+ " - "+this.getEmail();
     }
 
+    public String toString(){
+        return this.getNom() + " " + this.getPrenom();
+    }
     public int getNum(){
         return numClient;
+    }
+
+    public static int getNbClient(){
+        return nbClient;
     }
     public String getNom() {
         return nom;
