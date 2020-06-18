@@ -1,6 +1,5 @@
 package Camping;
 
-
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -8,30 +7,28 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 
-
-
 public class Reservation {
 
     private Emplacement emplacement;
     private LocalDate dateArrivee;
     private LocalDate dateDepart;
     private Client client;
-    private int nbReservation = 0;
+    private static int nbReservation = 0;
     private int numeroReservation;
     private Map<Client, Integer> mesres;
     public static ArrayList<Reservation> listeReservation  = new ArrayList<Reservation>();
 
-    public Reservation(Emplacement emplacement, LocalDate dd , LocalDate da, Client client) {
+    public Reservation(Emplacement e, LocalDate dd , LocalDate da, Client client) {
         nbReservation++;
         numeroReservation = nbReservation;
-        this.emplacement = emplacement;
+        emplacement = e;
         dateArrivee = da;
         dateDepart = dd;
         this.client = client;
         listeReservation.add(this); 
     }
 
-    public int getnbReservation() {
+    public static int getnbReservation() {
         return nbReservation;
     }
 
@@ -84,5 +81,9 @@ public class Reservation {
             System.out.println(this.numeroReservation + dateDepart.toString() + dateArrivee.toString());
             client.afficher();
         }
+    }
+
+    public String toString(){
+        return "numero reservation"+numeroReservation+"numero d'emplacment :"+emplacement.toString()+"nom prénom client:"+client.toString()+dateArrivee+dateDepart; 
     }
 }
