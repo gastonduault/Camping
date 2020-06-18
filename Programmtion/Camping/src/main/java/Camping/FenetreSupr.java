@@ -22,6 +22,40 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 public class FenetreSupr extends Stage {
+	static private FenetreSupr fsup		= new FenetreSupr();
+	static private FenReservation freserv = new FenReservation();
+	static private FenClient	fclient = new FenClient();
+	static private FenSearch fsearch = new FenSearch();
+	
+
+
+	private static ObservableList<String> lesClient = FXCollections.observableArrayList("Thomas","Vincent","Ewen","Clement","Gaston");
+	static private ObservableList<String> lesEmplacement = FXCollections.observableArrayList("emp1","emp2","emp3","emp4","emp5");
+	static private ObservableList<String> lesReserv = FXCollections.observableArrayList("reserv1","reserv2","reserv3","reserv4","reserv5");
+
+	public static ObservableList<String> getLesClients() {
+		return lesClient;
+	}
+	public static ObservableList<String> getLesEmplacements() {
+		return lesEmplacement;
+	}
+	public static ObservableList<String> getLesReserv() {
+		return lesReserv;
+	}
+	public static void supprimerClient(int i) {
+		lesClient.remove(i);
+		fsup.actualiserListe(lesClient);
+	}
+	public static void supprimerReserv(int i) {
+		lesReserv.remove(i);
+		fsup.actualiserListe(lesReserv);
+	}
+	public static void supprimerEmp(int i) {
+		lesEmplacement.remove(i);
+		fsup.actualiserListe(lesEmplacement);
+	}
+
+
 	// les composants de la fen�tre
 	private AnchorPane  		racine			= new AnchorPane();
 	private ListView<String> 	listeClient	= new ListView<String>();
@@ -58,10 +92,10 @@ public class FenetreSupr extends Stage {
 		listeChoix.setItems(options);
 		listeTri.setItems(optionsTri);
 		listeChoix.getSelectionModel().select(0);
-		listeClient.setItems(App.getLesClients());
+		listeClient.setItems(getLesClients());
 		listeTri.getSelectionModel().select(0);
 		listeClient.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
-		listeClient.setItems(App.getLesClients());
+		listeClient.setItems(getLesClients());
 		AnchorPane.setTopAnchor(bnRenitia, 140.0);
 		AnchorPane.setRightAnchor(bnRenitia, 10.0);
 		AnchorPane.setTopAnchor(listeChoix, 10.0);
@@ -85,30 +119,30 @@ public class FenetreSupr extends Stage {
 			String select = listeChoix.getSelectionModel().getSelectedItem();
 			if(select.equals("Client")) {
 				optionsTri.setAll(triClient);
-				listeClient.setItems(App.getLesClients());
+				listeClient.setItems(getLesClients());
 			}else if(select.equals("R�servation")) {
 				optionsTri.setAll(triReserv);
 			
-				listeClient.setItems(App.getLesReserv());
+				listeClient.setItems(getLesReserv());
 			}else if(select.equals("Emplacement")) {
 				optionsTri.setAll(triEmplacement);
-				listeClient.setItems(App.getLesEmplacements());
+				listeClient.setItems(getLesEmplacements());
 			}
 		});
 		listeTri.setOnAction(e ->{
 			input.setPromptText("Saisir " + listeTri.getSelectionModel().getSelectedItem());
 		});
 		bnRenitia.setOnAction(e ->{
-			listeClient.setItems(App.getLesClients());
+			listeClient.setItems(getLesClients());
 		});
 		
 		input.setOnKeyPressed(ke ->{
 		KeyCode keyCode = ke.getCode();
 		if(keyCode.equals(KeyCode.ENTER)) {
 			String inputTxt = input.getText();
-			if(App.getLesClients().contains(inputTxt)) {
+			if(getLesClients().contains(inputTxt)) {
 				ArrayList<String> newlist = new ArrayList<String>();
-				for(String s : App.getLesClients()) {
+				for(String s : getLesClients()) {
 					if (s.equals(inputTxt)) {
 						newlist.add(s);
 					}
@@ -140,11 +174,11 @@ public class FenetreSupr extends Stage {
 			Optional<ButtonType> res = sur.showAndWait();
 			if(res.isPresent() && res.get() == ButtonType.YES) {
 				if(select.equals("Client")) {
-					App.supprimerClient(listeClient.getSelectionModel().getSelectedIndex());
+					supprimerClient(listeClient.getSelectionModel().getSelectedIndex());
 				}else if(select.equals("R�servation")) {
-					App.supprimerReserv(listeClient.getSelectionModel().getSelectedIndex());
+					supprimerReserv(listeClient.getSelectionModel().getSelectedIndex());
 				}else if(select.equals("Emplacement")) {
-					App.supprimerEmp(listeClient.getSelectionModel().getSelectedIndex());
+					supprimerEmp(listeClient.getSelectionModel().getSelectedIndex());
 				}
 				
 			}

@@ -4,6 +4,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Rectangle;
 import javafx.event.EventHandler;
 import javafx.event.ActionEvent;
+import javafx.scene.Cursor;
 import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -18,15 +19,16 @@ import javafx.stage.Stage;
 
 public class FenPrincipal extends Stage {
 
+  private static FenClient fClient = new FenClient();
+  private static FenetreSupr fSupr = new FenetreSupr();
+  private static FenSearch fSearch = new FenSearch();
+
   Color bleu = Color.web("#5A68D3");
   Color blanc = Color.web("#E9E6FF");
   Color bleuF = Color.web("#B5C7F8");
   Color vert = Color.web("#30CE52");
   Color rouge = Color.web("#EF383C");
-
-  static private FenSearch fsearch = new FenSearch();
   
-
   private Button fermer = new Button("Quitter");
 
   public FenPrincipal() {
@@ -59,7 +61,7 @@ public class FenPrincipal extends Stage {
     {
         @Override
         public void handle(MouseEvent t) {
-            fsearch.show();
+            fSearch.show();
             close();
         }
     });
@@ -67,7 +69,7 @@ public class FenPrincipal extends Stage {
     {
         @Override
         public void handle(MouseEvent t) {
-            fsearch.show();
+            fSearch.show();
             close();
         }
     });
@@ -75,17 +77,14 @@ public class FenPrincipal extends Stage {
 
     Rectangle carrevert = new Rectangle(20, 160, 30, 30);
     carrevert.setFill(vert);
-    Rectangle carrenoir = new Rectangle(20, 210, 30, 30);
-    carrenoir.setFill(Color.BLACK);
+
     Rectangle carrerouge = new Rectangle(20, 260, 30, 30);
     carrerouge.setFill(rouge);
-    Label occupe = new Label("Occupé");
-    occupe.setLayoutX(60);
-    occupe.setLayoutY(170);
-    Label libre = new Label("Libre");
-    libre.setLayoutX(60);
-    libre.setLayoutY(220);
-    Label reserve = new Label("Réservé");
+    Label Libre = new Label("Libre");
+    Libre.setLayoutX(60);
+    Libre.setLayoutY(170);
+   
+    Label reserve = new Label("réservé");
     reserve.setLayoutX(60);
     reserve.setLayoutY(270);
 
@@ -116,7 +115,7 @@ public class FenPrincipal extends Stage {
     ajouter.setOnMouseClicked(new EventHandler<MouseEvent>(){
     	@Override
         public void handle(MouseEvent t) {
-            App.startClient();
+            fClient.show();
         }
     
 	});
@@ -124,7 +123,7 @@ public class FenPrincipal extends Stage {
      supprimer.setOnMouseClicked(new EventHandler<MouseEvent>(){
     	@Override
         public void handle(MouseEvent t) {
-            App.startSup();
+            fSupr.show();
         }
     
 	});
@@ -220,7 +219,7 @@ public class FenPrincipal extends Stage {
     recherche.getChildren().addAll(rondloupe, loupeIV);
 
     Group legende = new Group();
-    legende.getChildren().addAll(carrevert, carrenoir, carrerouge, occupe, libre, reserve, ajouter, supprimer, plusIV, moinIV);
+    legende.getChildren().addAll(carrevert, carrerouge, Libre, reserve, ajouter, supprimer, plusIV, moinIV);
 
     Group carte = new Group();
     carte.getChildren().addAll(plan, lacIV);
