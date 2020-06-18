@@ -4,6 +4,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Rectangle;
 import javafx.event.EventHandler;
 import javafx.event.ActionEvent;
+import javafx.scene.Cursor;
 import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -18,15 +19,16 @@ import javafx.stage.Stage;
 
 public class FenPrincipal extends Stage {
 
+  private static FenClient fClient = new FenClient();
+  private static FenetreSupr fSupr = new FenetreSupr();
+  private static FenSearch fSearch = new FenSearch();
+
   Color bleu = Color.web("#5A68D3");
   Color blanc = Color.web("#E9E6FF");
   Color bleuF = Color.web("#B5C7F8");
   Color vert = Color.web("#30CE52");
   Color rouge = Color.web("#EF383C");
-
-  static private FenSearch fsearch = new FenSearch();
   
-
   private Button fermer = new Button("Quitter");
 
   public FenPrincipal() {
@@ -59,7 +61,7 @@ public class FenPrincipal extends Stage {
     {
         @Override
         public void handle(MouseEvent t) {
-            fsearch.show();
+            fSearch.show();
             close();
         }
     });
@@ -67,7 +69,7 @@ public class FenPrincipal extends Stage {
     {
         @Override
         public void handle(MouseEvent t) {
-            fsearch.show();
+            fSearch.show();
             close();
         }
     });
@@ -116,7 +118,7 @@ public class FenPrincipal extends Stage {
     ajouter.setOnMouseClicked(new EventHandler<MouseEvent>(){
     	@Override
         public void handle(MouseEvent t) {
-            App.startClient();
+            fClient.show();
         }
     
 	});
@@ -124,7 +126,7 @@ public class FenPrincipal extends Stage {
      supprimer.setOnMouseClicked(new EventHandler<MouseEvent>(){
     	@Override
         public void handle(MouseEvent t) {
-            App.startSup();
+            fSupr.show();
         }
     
 	});
