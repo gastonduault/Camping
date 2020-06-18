@@ -107,7 +107,30 @@ public class FenPrincipal extends Stage {
     moinIV.setFitHeight(30);
     moinIV.setLayoutX(20);
     moinIV.setLayoutY(455);
-
+    
+       rondloupe.setCursor(Cursor.HAND);
+    loupeIV.setCursor(Cursor.HAND);
+    ajouter.setCursor(Cursor.HAND);
+    plusIV.setCursor(Cursor.HAND);
+    
+    ajouter.setOnMouseClicked(new EventHandler<MouseEvent>(){
+    	@Override
+        public void handle(MouseEvent t) {
+            App.startClient();
+        }
+    
+	});
+    
+     supprimer.setOnMouseClicked(new EventHandler<MouseEvent>(){
+    	@Override
+        public void handle(MouseEvent t) {
+            App.startSup();
+        }
+    
+	});
+	
+    supprimer.setCursor(Cursor.HAND);
+    moinIV.setCursor(Cursor.HAND);
     Rectangle e1 = new Rectangle(20, 20);
     Rectangle e2 = new Rectangle(20, 20);
     Rectangle e3 = new Rectangle(20, 20);
