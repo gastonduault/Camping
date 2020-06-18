@@ -2,6 +2,7 @@ package Camping;
 
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.control.SelectionMode;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Rectangle;
 import javafx.event.EventHandler;
@@ -22,8 +23,12 @@ public class FenSearchClient extends Stage {
     Color vert = Color.web("#30CE52");
     Color rouge = Color.web("#EF383C");
 
+    private static Client c1 = new Client("duault", "gaston", "gaston.duault@univ-rennes1.fr");
+    
     static private FenSearch fsearch = new FenSearch();
   
+    private ListView<String> Liste  = new ListView<String>();
+
     public FenSearchClient() {
       this.setTitle("Camping");
       this.setResizable(true);
@@ -38,13 +43,13 @@ public class FenSearchClient extends Stage {
         Rectangle fond = new Rectangle(0, 0, 800, 600);
         fond.setFill(bleuF);
 
-        Circle annuler = new Circle(100, 45, 25);
+        Circle annuler = new Circle(700, 45, 25);
         annuler.setFill(blanc);
         Image croix = new Image(getClass().getResource("images/croix.png").toString());
         ImageView croixIV = new ImageView(croix);
         croixIV.setFitWidth(25);
         croixIV.setFitHeight(25);
-        croixIV.setLayoutX(88);
+        croixIV.setLayoutX(688);
         croixIV.setLayoutY(33);
         annuler.setOnMouseClicked(new EventHandler<MouseEvent>()
         
@@ -60,11 +65,19 @@ public class FenSearchClient extends Stage {
         client.setLayoutY(30);
         client.setStyle("-fx-font: 20 arial;");
 
+        Liste.setLayoutX(200);
+        Liste.setLayoutY(300);
+        Liste.getItems().add(c1.toString());
+        Liste.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);	
+
         Group hautpage = new Group();
         hautpage.getChildren().addAll(annuler, croixIV, client);
 
+        Group midpage = new Group();
+        midpage.getChildren().addAll(Liste);
+
         Group total = new Group();
-        total.getChildren().addAll(fond, hautpage);
+        total.getChildren().addAll(fond, hautpage, Liste);
         return total;
     }
 }

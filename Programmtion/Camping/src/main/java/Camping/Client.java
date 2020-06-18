@@ -21,7 +21,7 @@ public class Client {
     }
 
     public String toString() {
-        return this.getNom()+" - " + this.getPrenom()+" - "+ this.getEmail();
+        return this.getNom()+" - "+this.getPrenom()+" - "+this.getNum()+ " - "+this.getEmail();
     }
 
     public int getNum(){
