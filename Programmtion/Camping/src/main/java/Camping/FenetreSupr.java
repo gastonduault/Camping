@@ -5,7 +5,6 @@ package Camping;
 import java.util.ArrayList;
 import java.util.Optional;
 
-import javafx.beans.property.DoubleProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.Parent;
@@ -23,9 +22,6 @@ import javafx.stage.Stage;
 
 public class FenetreSupr extends Stage {
 	static private FenetreSupr fsup		= new FenetreSupr();
-	static private FenReservation freserv = new FenReservation();
-	static private FenClient	fclient = new FenClient();
-	static private FenSearch fsearch = new FenSearch();
 	
 
 
@@ -120,9 +116,8 @@ public class FenetreSupr extends Stage {
 			if(select.equals("Client")) {
 				optionsTri.setAll(triClient);
 				listeClient.setItems(getLesClients());
-			}else if(select.equals("R�servation")) {
+			}else if(select.equals("Reservation")) {
 				optionsTri.setAll(triReserv);
-			
 				listeClient.setItems(getLesReserv());
 			}else if(select.equals("Emplacement")) {
 				optionsTri.setAll(triEmplacement);
