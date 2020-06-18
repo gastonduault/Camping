@@ -1,7 +1,5 @@
 package Camping;
 
-
-
 import java.util.ArrayList;
 import java.util.Optional;
 
@@ -23,16 +21,15 @@ import javafx.stage.Stage;
 public class FenetreSupr extends Stage {
 	static private FenetreSupr fsup		= new FenetreSupr();
 	
-
-
-	private static ObservableList<String> lesClient = FXCollections.observableArrayList("Thomas","Vincent","Ewen","Clement","Gaston");
-	static private ObservableList<String> lesEmplacement = FXCollections.observableArrayList("emp1","emp2","emp3","emp4","emp5");
+	private static ObservableList<Client> lesClient = FXCollections.observableArrayList(Client.listeClient);
+	static private ObservableList<Emplacement> lesEmplacement = FXCollections.observableArrayList(Emplacement.listeEmplacement);
 	static private ObservableList<String> lesReserv = FXCollections.observableArrayList("reserv1","reserv2","reserv3","reserv4","reserv5");
 
-	public static ObservableList<String> getLesClients() {
+
+	public static ObservableList<Client> getLesClients() {
 		return lesClient;
 	}
-	public static ObservableList<String> getLesEmplacements() {
+	public static ObservableList<Emplacement> getLesEmplacements() {
 		return lesEmplacement;
 	}
 	public static ObservableList<String> getLesReserv() {
@@ -60,11 +57,10 @@ public class FenetreSupr extends Stage {
 	private Button 				bnRenitia 		= new Button("Renitialiser");
 	private ComboBox<String> 	listeChoix	= new ComboBox<String>();
 	private ComboBox<String> 	listeTri= new ComboBox<String>();
-	private ObservableList<String> options = FXCollections.observableArrayList("Client","Réservation","Emplacement");
+	private ObservableList<String> options = FXCollections.observableArrayList("Client","Réservation");
 	private ObservableList<String> optionsTri = FXCollections.observableArrayList();
 	private String [] triClient = {"Numéro client","Date","Nom"};
 	private String [] triReserv = {"Numéro reserv","Prix","Date"};
-	private String [] triEmplacement = {"Numéro emp","Date"};
 	private TextField 		input = new TextField();
 	// constructeur : initialisation de la fen�tre
 	public FenetreSupr(){
@@ -73,6 +69,11 @@ public class FenetreSupr extends Stage {
 		this.setScene(new Scene(creerContenu()));	
 		this.setMinWidth(300);
 		
+	}
+	public void String(){
+		for(int i=0; i<=Client.listeClient.size();i++){
+			listeClient.getItems().add(Client.listeClient.get(i).toString());
+		}
 	}
 	
 	// cr�ation du Scene graph
@@ -116,7 +117,7 @@ public class FenetreSupr extends Stage {
 			if(select.equals("Client")) {
 				optionsTri.setAll(triClient);
 				listeClient.setItems(getLesClients());
-			}else if(select.equals("Reservation")) {
+			}else if(select.equals("Réservation")) {
 				optionsTri.setAll(triReserv);
 				listeClient.setItems(getLesReserv());
 			}else if(select.equals("Emplacement")) {
@@ -181,11 +182,14 @@ public class FenetreSupr extends Stage {
 		return racine;
 	}
 
-	public void actualiserListe(ObservableList<String> lesClients) {
+	public void actualiserListe(ObservableList<Client> lesClients) {
 		listeClient.setItems(lesClients);
 		this.GereBtn();
 	}
-	
+	public void actualiserListe(ObservableList<Client> lesClients) {
+		listeClient.setItems(lesClients);
+		this.GereBtn();
+	}
 	public void GereBtn() {
 		if(listeClient.getSelectionModel().getSelectedIndex() == -1 || listeClient.getItems().size() == 0) {
 			bnSupprimer.setDisable(true);
