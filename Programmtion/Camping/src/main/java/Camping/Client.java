@@ -21,7 +21,7 @@ public class Client {
     }
 
     public String toStringComplet() {
-        return this.getNom()+" - "+this.getPrenom()+" - "+this.getNum()+ " - "+this.getEmail();
+        return this.getNom()+"               "+this.getPrenom()+"               "+this.getNum()+"               "+this.getEmail();
     }
 
     public String toString(){
@@ -61,4 +61,17 @@ public class Client {
     public void afficher(){
         System.out.println(this.toString());
     }
+
+    /*public static void supprimerclient(Client c){
+        int i = 0;
+        boolean trouve = false;
+        while(trouve!=true || i<=listeClient.size()){
+            if(c.equals(listeClient.get(i))){
+                listeClient.remove(i);
+            }
+            else{
+                i++;
+            }
+        }
+    }*/
 }
