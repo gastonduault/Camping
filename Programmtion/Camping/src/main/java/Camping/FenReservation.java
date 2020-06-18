@@ -123,12 +123,20 @@ public class FenReservation extends Stage{
 
         if (test == true){
             Reservation r = new Reservation(listeMenuEmplacement.getValue(), dateEntree.getValue(), dateSortie.getValue(), listeClient.getValue());
+            listeMenuEmplacement.setValue(null);
+            listeMenuEmplacement.setPromptText("Emplacement");
+            listeClient.setValue(null);
+            listeClient.setPromptText("Client");
             this.close();
         }
         
     }
 
     private void fermer(ActionEvent e){
+        listeMenuEmplacement.setValue(null);
+        listeMenuEmplacement.setPromptText("Emplacement");
+        listeClient.setValue(null);
+        listeClient.setPromptText("Client");
         this.close();
     }
 }
