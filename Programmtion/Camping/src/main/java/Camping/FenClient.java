@@ -130,10 +130,6 @@ public class FenClient extends Stage {
             Client c = new Client(String.valueOf(nomClient.getCharacters()), String.valueOf(prenomClient.getCharacters()) , String.valueOf(emailClient.getCharacters()));
             FenReservation.listeClient.getItems().add(c);
             FenSearchClient.Liste.getItems().add(c.toStringComplet());
-            nomClient.setText("");
-            prenomClient.setText("");
-            emailClient.setText("");
-            numC.setText(String.valueOf(Client.getNbClient() + 1)); 
             this.close();
         }
     }
@@ -155,10 +151,6 @@ public class FenClient extends Stage {
     }
 
     private void fermer(ActionEvent e){
-        nomClient.setText("");
-        prenomClient.setText("");
-        emailClient.setText("");
-        numC.setText(String.valueOf(Client.getNbClient() + 1));
         this.close();
     }
 }
