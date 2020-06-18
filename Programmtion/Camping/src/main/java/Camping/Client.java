@@ -6,7 +6,7 @@ public class Client {
     private String prenom;
     private String email;
     private int numClient;
-    private static int nbClient = 1;
+    private int nbClient = 1;
 
 
     public Client(String n, String p, String e){
@@ -17,7 +17,7 @@ public class Client {
     }
 
     public String toString() {
-        return this.getNom()+" - " + this.getPrenom()+" - "+ this.getEmail();
+        return this.getNom()+" - "+this.getPrenom()+" - "+this.getNum()+ " - "+this.getEmail();
     }
 
     public int getNum(){
