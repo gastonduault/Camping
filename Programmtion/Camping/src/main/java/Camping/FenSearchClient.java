@@ -69,10 +69,14 @@ public class FenSearchClient extends Stage {
         client.setLayoutY(30);
         client.setStyle("-fx-font: 20 arial;");
 
-        Liste.setLayoutX(200);
-        Liste.setLayoutY(300);
+        Liste.setLayoutX(25);
+        Liste.setLayoutY(100);
         Liste.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
-
+        Liste.setMinHeight(450);
+        Liste.setMinWidth(750);
+        Liste.setMaxHeight(450);
+        Liste.setMaxWidth(750);
+        
         Group hautpage = new Group();
         hautpage.getChildren().addAll(annuler, croixIV, client);
 
