@@ -25,7 +25,7 @@ public class FenSearchClient extends Stage {
     
     static private FenSearch fsearch = new FenSearch();
   
-    private ListView<String> Liste  = new ListView<String>();
+    public static ListView<String> Liste  = new ListView<String>();
 
     public FenSearchClient() {
       this.setTitle("Camping");
