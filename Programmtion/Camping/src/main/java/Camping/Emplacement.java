@@ -2,10 +2,10 @@ package Camping;
 
 import java.util.ArrayList;
 
-abstract class Emplacement {
+public class Emplacement {
 
-    private int numeroEmplacement;
-    private int nbEmplacement = 0;
+    private static int numeroEmplacement;
+    private static int nbEmplacement = 0;
     private double surface;
     private boolean estDispo;
     private int prixJour;
@@ -21,13 +21,12 @@ abstract class Emplacement {
         this.prixJour = prix;
         this.nbVehicule = vehicule;
         estDispo = true;
-        listeEmplacement.add(this);
     }
 
-    // Guetteur
 
-    public int getNumeroEmp(){
-        return this.numeroEmplacement;
+    // Guetteur
+    public static int getNumeroEmp(){
+        return numeroEmplacement;
     }
 
     /**
@@ -36,7 +35,6 @@ abstract class Emplacement {
     public double getSurface() {
         return surface;
     }
-
     /**
      * @return the prixJour
      */
