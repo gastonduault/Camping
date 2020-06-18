@@ -37,7 +37,7 @@ public class FenReservation extends Stage{
         root.setBackground(new Background(new BackgroundFill(Color.web("#B5C7F8"), CornerRadii.EMPTY, Insets.EMPTY)));
         
         for (int i = 0; i < Emplacement.listeEmplacement.size(); i++ ){
-            listeMenuEmplacement.getItems().add(Emplacement.listeEmplacement.get(i)//);
+            listeMenuEmplacement.getItems().add(Emplacement.listeEmplacement.get(i));
         }
         listeMenuEmplacement.getSelectionModel().select(2);
         root.add(emplacement, 1, 1);

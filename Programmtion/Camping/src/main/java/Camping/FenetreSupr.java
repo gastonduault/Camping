@@ -1,11 +1,9 @@
-package application;
+package Camping;
 
 
-import java.awt.Color;
+
 import java.util.ArrayList;
 import java.util.Optional;
-
-import javax.xml.ws.Response;
 
 import javafx.beans.property.DoubleProperty;
 import javafx.collections.FXCollections;
@@ -24,7 +22,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 public class FenetreSupr extends Stage {
-	// les composants de la fenêtre
+	// les composants de la fenï¿½tre
 	private AnchorPane  		racine			= new AnchorPane();
 	private ListView<String> 	listeClient	= new ListView<String>();
 	private Button 				bnSupprimer 	= new Button("Supprimer");
@@ -32,13 +30,13 @@ public class FenetreSupr extends Stage {
 	private Button 				bnRenitia 		= new Button("Renitialiser");
 	private ComboBox<String> 	listeChoix	= new ComboBox<String>();
 	private ComboBox<String> 	listeTri= new ComboBox<String>();
-	private ObservableList<String> options = FXCollections.observableArrayList("Client","Réservation","Emplacement");
+	private ObservableList<String> options = FXCollections.observableArrayList("Client","RÃ©servation","Emplacement");
 	private ObservableList<String> optionsTri = FXCollections.observableArrayList();
-	private String [] triClient = {"Numéro client","Date","Nom"};
-	private String [] triReserv = {"Numéro reserv","Prix","Date"};
-	private String [] triEmplacement = {"Numéro emp","Date"};
+	private String [] triClient = {"NumÃ©ro client","Date","Nom"};
+	private String [] triReserv = {"NumÃ©ro reserv","Prix","Date"};
+	private String [] triEmplacement = {"NumÃ©ro emp","Date"};
 	private TextField 		input = new TextField();
-	// constructeur : initialisation de la fenêtre
+	// constructeur : initialisation de la fenï¿½tre
 	public FenetreSupr(){
 		this.setTitle("Supprimer");
 		this.setResizable(true);
@@ -47,7 +45,7 @@ public class FenetreSupr extends Stage {
 		
 	}
 	
-	// création du Scene graph
+	// crï¿½ation du Scene graph
 	private Parent creerContenu() {
 		
 		optionsTri.setAll(triClient);
@@ -88,7 +86,7 @@ public class FenetreSupr extends Stage {
 			if(select.equals("Client")) {
 				optionsTri.setAll(triClient);
 				listeClient.setItems(App.getLesClients());
-			}else if(select.equals("Réservation")) {
+			}else if(select.equals("Rï¿½servation")) {
 				optionsTri.setAll(triReserv);
 			
 				listeClient.setItems(App.getLesReserv());
@@ -125,8 +123,8 @@ public class FenetreSupr extends Stage {
 		racine.setStyle("-fx-background-color: #EF3B3C");
 		racine.getChildren().addAll(bnRenitia, listeTri,input,listeChoix,bnSupprimer, bnFermer, listeClient);
 		
-		// détection et traitement des événements
-		// A FAIRE : poser des écouteurs sur les composants de la fenêtre
+		// dï¿½tection et traitement des ï¿½vï¿½nements
+		// A FAIRE : poser des ï¿½couteurs sur les composants de la fenï¿½tre
 
 		bnFermer.setOnAction(e -> {
 			System.exit(0);
@@ -143,7 +141,7 @@ public class FenetreSupr extends Stage {
 			if(res.isPresent() && res.get() == ButtonType.YES) {
 				if(select.equals("Client")) {
 					App.supprimerClient(listeClient.getSelectionModel().getSelectedIndex());
-				}else if(select.equals("Réservation")) {
+				}else if(select.equals("Rï¿½servation")) {
 					App.supprimerReserv(listeClient.getSelectionModel().getSelectedIndex());
 				}else if(select.equals("Emplacement")) {
 					App.supprimerEmp(listeClient.getSelectionModel().getSelectedIndex());
