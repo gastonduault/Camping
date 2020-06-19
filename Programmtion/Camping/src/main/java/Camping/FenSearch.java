@@ -3,6 +3,7 @@ package Camping;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Rectangle;
 import javafx.event.EventHandler;
+import javafx.scene.Cursor;
 import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -25,6 +26,8 @@ public class FenSearch extends Stage{
     static private FenPrincipal fprincipal = new FenPrincipal();
     static private FenSearchClient fSearchclient = new FenSearchClient();
     static private FenSearchEmplacement fSearchEmplacement = new FenSearchEmplacement();
+    static private FenSearchReservation fenSearchReservation = new FenSearchReservation();
+
 
     public FenSearch() {
       this.setTitle("Camping");
@@ -47,6 +50,7 @@ public class FenSearch extends Stage{
 
         Circle annuler = new Circle(700, 45, 25);
         annuler.setFill(blanc);
+        annuler.setCursor(Cursor.HAND);
         Image croix = new Image(getClass().getResource("images/croix.png").toString());
         ImageView croixIV = new ImageView(croix);
         croixIV.setFitWidth(25);
@@ -64,6 +68,7 @@ public class FenSearch extends Stage{
 
         Rectangle carreClient = new Rectangle(200, 200);
         carreClient.setFill(blanc);
+        carreClient.setCursor(Cursor.HAND);
         carreClient.setOnMouseClicked(new EventHandler<MouseEvent>()
     {
         @Override
@@ -74,6 +79,7 @@ public class FenSearch extends Stage{
     });
         Rectangle carreEmplacement = new Rectangle(200,200);
         carreEmplacement.setFill(blanc);
+        carreEmplacement.setCursor(Cursor.HAND);
         carreEmplacement.setOnMouseClicked(new EventHandler<MouseEvent>()
     {
         @Override
@@ -84,8 +90,17 @@ public class FenSearch extends Stage{
     });
         Rectangle carreOrdredujour = new Rectangle(200, 200);
         carreOrdredujour.setFill(blanc);
+        carreOrdredujour.setCursor(Cursor.HAND);
         Rectangle carreReservation = new Rectangle(200,200);
         carreReservation.setFill(blanc);
+        carreReservation.setCursor(Cursor.HAND);
+        carreReservation.setOnMouseClicked(new EventHandler<MouseEvent>(){
+        @Override
+        public void handle(MouseEvent t){
+          fenSearchReservation.show();
+          close();
+        }
+        });
 
         GridPane menu = new GridPane();
         menu.setGridLinesVisible(false);

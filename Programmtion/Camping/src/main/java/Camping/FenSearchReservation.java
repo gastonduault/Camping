@@ -17,7 +17,7 @@ import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 
 
-public class FenSearchClient extends Stage {
+public class FenSearchReservation extends Stage {
     Color bleu = Color.web("#5A68D3");
     Color blanc = Color.web("#E9E6FF");
     Color bleuF = Color.web("#B5C7F8");
@@ -28,7 +28,7 @@ public class FenSearchClient extends Stage {
   
     public static ListView<String> Liste  = new ListView<String>();
 
-    public FenSearchClient() {
+    public FenSearchReservation() {
       this.setTitle("Camping");
       this.setResizable(true);
       this.setMinWidth(800);
@@ -36,14 +36,8 @@ public class FenSearchClient extends Stage {
       Scene fenPrin = new Scene(contenu());
       this.setScene(fenPrin);
       this.sizeToScene();
-      App.actualiserClient();
+      App.actualiserReservation(); 
     }
-
-    /*public void actualiserListe(){
-      for(int i=0; i<=Client.getNbClient(); i++){
-        Liste.getItems().add(Client.listeClient.get(i).toStringComplet());
-      }
-    }*/
 
     Parent contenu(){
         Rectangle fond = new Rectangle(0, 0, 800, 600);
@@ -52,7 +46,6 @@ public class FenSearchClient extends Stage {
         Circle annuler = new Circle(700, 45, 25);
         annuler.setFill(blanc);
         annuler.setCursor(Cursor.HAND);
-
         Image croix = new Image(getClass().getResource("images/croix.png").toString());
         ImageView croixIV = new ImageView(croix);
         croixIV.setFitWidth(25);
@@ -68,7 +61,7 @@ public class FenSearchClient extends Stage {
           close();
         }
     });
-        Label client = new Label("Client");
+        Label client = new Label("Réservation");
         client.setLayoutX(350);
         client.setLayoutY(30);
         client.setStyle("-fx-font: 20 arial;");

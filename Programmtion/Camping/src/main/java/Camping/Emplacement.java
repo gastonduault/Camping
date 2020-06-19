@@ -8,7 +8,7 @@ public class Emplacement {
 
     private Rectangle r;
     private int numeroEmplacement = 0;
-    public static int nbEmplacement = -1;
+    private static int nbEmplacement = 0;
     private double surface;
     private boolean estDispo;
     private int prixJour;
@@ -18,8 +18,8 @@ public class Emplacement {
     public static ArrayList<Emplacement> listeEmplacement = new ArrayList<Emplacement>();
 
     // Contructeur
-    public Emplacement(Rectangle rectangle, double surface, int prix, int vehicule) {
-        this.r = rectangle;
+    public Emplacement(Rectangle r, double surface, int prix, int vehicule) {
+        this.r = r;
         nbEmplacement++;
         numeroEmplacement = nbEmplacement;
         this.surface = surface;
@@ -85,8 +85,8 @@ public class Emplacement {
         if (estDispo) {
             dispo = "Oui";
         }
-        return "N° d'emplacement : " + numeroEmplacement + "\nSurface : " + this.surface + "\nPrix par Jour : "
-                + this.prixJour + "\nNombre de véhicule : " + this.nbVehicule + "\nDisponible : " + dispo;
+        return "N° : " + numeroEmplacement +"                            Surface : " + this.surface + "                             Prix par Jour : "
+                + this.prixJour + "\nNombre de véhicule : " + this.nbVehicule + "                             Disponible : " + dispo;
     }
 
     public String toString() {
