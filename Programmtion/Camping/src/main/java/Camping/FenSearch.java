@@ -24,7 +24,8 @@ public class FenSearch extends Stage{
 
     static private FenPrincipal fprincipal = new FenPrincipal();
     static private FenSearchClient fSearchclient = new FenSearchClient();
-  
+    static private FenSearchEmplacement fSearchEmplacement = new FenSearchEmplacement();
+
     public FenSearch() {
       this.setTitle("Camping");
       this.setResizable(true);
@@ -73,6 +74,14 @@ public class FenSearch extends Stage{
     });
         Rectangle carreEmplacement = new Rectangle(200,200);
         carreEmplacement.setFill(blanc);
+        carreEmplacement.setOnMouseClicked(new EventHandler<MouseEvent>()
+    {
+        @Override
+        public void handle(MouseEvent t) {
+          fSearchEmplacement.show();
+          close();
+        }
+    });
         Rectangle carreOrdredujour = new Rectangle(200, 200);
         carreOrdredujour.setFill(blanc);
         Rectangle carreReservation = new Rectangle(200,200);
