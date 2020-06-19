@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Emplacement {
 
-    private static int numeroEmplacement;
+    private int numeroEmplacement;
     private static int nbEmplacement = 0;
     private double surface;
     private boolean estDispo;
@@ -15,17 +15,19 @@ public class Emplacement {
 
     // Contructeur
     public Emplacement(double surface, int prix, int vehicule){
+        nbEmplacement++;
         numeroEmplacement = nbEmplacement;
-        nbEmplacement += 1;
+    
         this.surface = surface;
         this.prixJour = prix;
         this.nbVehicule = vehicule;
         estDispo = true;
+        listeEmplacement.add(this);
     }
 
 
     // Guetteur
-    public static int getNumeroEmp(){
+    public int getNumeroEmp(){
         return numeroEmplacement;
     }
 
@@ -77,7 +79,7 @@ public class Emplacement {
     }
 
     public String toString(){
-        return "N°" + this.getNumeroEmp();
+        return "N°" + this.getNumeroEmp() + "\nSurface : " + this.surface + "\nPrix " + this.prixJour;
     }
 
 }

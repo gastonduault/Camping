@@ -128,8 +128,7 @@ public class FenClient extends Stage {
         }
         if (testOk == true){
             Client c = new Client(String.valueOf(nomClient.getCharacters()), String.valueOf(prenomClient.getCharacters()) , String.valueOf(emailClient.getCharacters()));
-            FenReservation.listeClient.getItems().add(c);
-            FenSearchClient.Liste.getItems().add(c.toStringComplet());
+            App.actualiserClient();
             this.close();
         }
     }

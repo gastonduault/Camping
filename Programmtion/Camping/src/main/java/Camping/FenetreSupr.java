@@ -19,11 +19,11 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 public class FenetreSupr extends Stage {
-	static private FenetreSupr fsup		= new FenetreSupr();
-	
+
+	/*
 	private static ObservableList<Client> lesClient = FXCollections.observableArrayList(Client.listeClient);
 	static private ObservableList<Emplacement> lesEmplacement = FXCollections.observableArrayList(Emplacement.listeEmplacement);
-	static private ObservableList<String> lesReserv = FXCollections.observableArrayList("reserv1","reserv2","reserv3","reserv4","reserv5");
+	static private ObservableList<Reservation> lesReserv = FXCollections.observableArrayList(Reservation.listeReservation);
 
 
 	public static ObservableList<Client> getLesClients() {
@@ -32,8 +32,12 @@ public class FenetreSupr extends Stage {
 	public static ObservableList<Emplacement> getLesEmplacements() {
 		return lesEmplacement;
 	}
-	public static ObservableList<String> getLesReserv() {
+	public static ObservableList<Reservation> getLesReserv() {
 		return lesReserv;
+	}
+	public void actualiserListe(ObservableList<Client> lesClients) {
+		listeClient.getItems().add(lesClients.toString());
+		this.GereBtn();
 	}
 	public static void supprimerClient(int i) {
 		lesClient.remove(i);
@@ -41,94 +45,110 @@ public class FenetreSupr extends Stage {
 	}
 	public static void supprimerReserv(int i) {
 		lesReserv.remove(i);
-		fsup.actualiserListe(lesReserv);
+		//fsup.actualiserListe(lesReserv);
 	}
 	public static void supprimerEmp(int i) {
 		lesEmplacement.remove(i);
-		fsup.actualiserListe(lesEmplacement);
-	}
+		//fsup.actualiserListe(lesEmplacement);
+	}*/
 
 
 	// les composants de la fen�tre
 	private AnchorPane  		racine			= new AnchorPane();
-	private ListView<String> 	listeClient	= new ListView<String>();
+	public static ListView<String> 	liste	= new ListView<String>();
 	private Button 				bnSupprimer 	= new Button("Supprimer");
-	private Button 				bnFermer 		= new Button("Fermer");
+	private Button 				bnFermer 		= new Button("Retour");
 	private Button 				bnRenitia 		= new Button("Renitialiser");
 	private ComboBox<String> 	listeChoix	= new ComboBox<String>();
-	private ComboBox<String> 	listeTri= new ComboBox<String>();
-	private ObservableList<String> options = FXCollections.observableArrayList("Client","Réservation");
-	private ObservableList<String> optionsTri = FXCollections.observableArrayList();
+	private ComboBox<String> 	optionTri = new ComboBox<String>();
+
 	private String [] triClient = {"Numéro client","Date","Nom"};
 	private String [] triReserv = {"Numéro reserv","Prix","Date"};
+	private String [] triEmplac = {"Numéro", "Surface", "Disponibilité", "Prix"};
 	private TextField 		input = new TextField();
+
+
 	// constructeur : initialisation de la fen�tre
 	public FenetreSupr(){
 		this.setTitle("Supprimer");
 		this.setResizable(true);
 		this.setScene(new Scene(creerContenu()));	
-		this.setMinWidth(300);
-		
+		this.setMinWidth(300);	
 	}
-	public void String(){
-		for(int i=0; i<=Client.listeClient.size();i++){
-			listeClient.getItems().add(Client.listeClient.get(i).toString());
-		}
-	}
+
 	
 	// cr�ation du Scene graph
 	private Parent creerContenu() {
 		
-		optionsTri.setAll(triClient);
+
 		bnSupprimer.setPrefWidth(100);
 		bnFermer.setPrefWidth(100);
 		bnRenitia.setPrefWidth(100);
 		input.setMaxWidth(120.0);
+
 		listeChoix.setPrefWidth(120.0);
-		listeTri.setPrefWidth(120.0);
-		listeChoix.setItems(options);
-		listeTri.setItems(optionsTri);
+		listeChoix.getItems().addAll("Client", "Réservation", "Emplacement");
 		listeChoix.getSelectionModel().select(0);
-		listeClient.setItems(getLesClients());
-		listeTri.getSelectionModel().select(0);
-		listeClient.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
-		listeClient.setItems(getLesClients());
+
+		optionTri.setPrefWidth(120.0);
+		optionTri.getItems().setAll(triClient);
+		optionTri.getSelectionModel().select(0);
+
+		for (int i = 0; i < Client.listeClient.size(); i++){
+			liste.getItems().add(Client.listeClient.get(i).toString());
+		}
+		liste.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
+
 		AnchorPane.setTopAnchor(bnRenitia, 140.0);
 		AnchorPane.setRightAnchor(bnRenitia, 10.0);
 		AnchorPane.setTopAnchor(listeChoix, 10.0);
 		AnchorPane.setRightAnchor(listeChoix, 10.0);
-		AnchorPane.setTopAnchor(listeTri, 45.0);
-		AnchorPane.setRightAnchor(listeTri, 10.0);
+		AnchorPane.setTopAnchor(optionTri, 45.0);
+		AnchorPane.setRightAnchor(optionTri, 10.0);
 		AnchorPane.setTopAnchor(input, 80.0);
 		AnchorPane.setRightAnchor(input, 10.0);
 		AnchorPane.setTopAnchor(bnSupprimer, 110.0);
 		AnchorPane.setRightAnchor(bnSupprimer, 10.0);
 		AnchorPane.setBottomAnchor(bnFermer, 10.0);
 		AnchorPane.setRightAnchor(bnFermer, 10.0);
-		AnchorPane.setTopAnchor(listeClient, 10.0);
-		AnchorPane.setLeftAnchor(listeClient, 10.0);
-		AnchorPane.setRightAnchor(listeClient, 150.0);
-		AnchorPane.setBottomAnchor(listeClient, 10.0);
+		AnchorPane.setTopAnchor(liste, 10.0);
+		AnchorPane.setLeftAnchor(liste, 10.0);
+		AnchorPane.setRightAnchor(liste, 150.0);
+		AnchorPane.setBottomAnchor(liste, 10.0);
 		
-		input.setPromptText("Saisir " + listeTri.getSelectionModel().getSelectedItem());
+		input.setPromptText("Saisir " + optionTri.getSelectionModel().getSelectedItem());
 		
 		listeChoix.setOnAction(e ->{
 			String select = listeChoix.getSelectionModel().getSelectedItem();
 			if(select.equals("Client")) {
-				optionsTri.setAll(triClient);
-				listeClient.setItems(getLesClients());
-			}else if(select.equals("Réservation")) {
-				optionsTri.setAll(triReserv);
-				listeClient.setItems(getLesReserv());
+				optionTri.getItems().setAll(triClient);
+				optionTri.getSelectionModel().select(0);
+				liste.getItems().setAll();
+				for (int i = 0; i < Client.listeClient.size(); i++){
+					liste.getItems().add(Client.listeClient.get(i).toString());
+				}
+				
+			} else if(select.equals("Réservation")) {
+				optionTri.getItems().setAll(triReserv);
+				optionTri.getSelectionModel().select(0);
+				liste.getItems().setAll();
+				for (int i = 0; i < Reservation.listeReservation.size(); i++){
+					liste.getItems().setAll(Reservation.listeReservation.get(i).toString());
+				}
+				
 			}else if(select.equals("Emplacement")) {
-				optionsTri.setAll(triEmplacement);
-				listeClient.setItems(getLesEmplacements());
+				optionTri.getItems().setAll(triEmplac);
+				optionTri.getSelectionModel().select(0);
+				liste.getItems().setAll();
+				for (int i = 0; i < Emplacement.listeEmplacement.size(); i++){
+					liste.getItems().setAll(Emplacement.listeEmplacement.get(i).toString());
+				}
 			}
 		});
-		listeTri.setOnAction(e ->{
+		/*listeTri.setOnAction(e ->{
 			input.setPromptText("Saisir " + listeTri.getSelectionModel().getSelectedItem());
 		});
-		bnRenitia.setOnAction(e ->{
+		/*bnRenitia.setOnAction(e ->{
 			listeClient.setItems(getLesClients());
 		});
 		
@@ -137,30 +157,30 @@ public class FenetreSupr extends Stage {
 		if(keyCode.equals(KeyCode.ENTER)) {
 			String inputTxt = input.getText();
 			if(getLesClients().contains(inputTxt)) {
-				ArrayList<String> newlist = new ArrayList<String>();
-				for(String s : getLesClients()) {
+				ArrayList<Client> newlist = new ArrayList<Client>();
+				for(Client s : getLesClients()) {
 					if (s.equals(inputTxt)) {
 						newlist.add(s);
 					}
 				}
-				ObservableList<String> recherche = FXCollections.observableArrayList(newlist);
-				listeClient.setItems(recherche);
+				//ObservableList<String> recherche = FXCollections.observableArrayList(newlist);
+				//listeClient.setItems(recherche);
 			}
 		}
 		});
 			
-		
+		*/
 		racine.setStyle("-fx-background-color: #EF3B3C");
-		racine.getChildren().addAll(bnRenitia, listeTri,input,listeChoix,bnSupprimer, bnFermer, listeClient);
+		racine.getChildren().addAll(bnRenitia, optionTri,input,listeChoix,bnSupprimer, bnFermer, liste);
 		
 		// d�tection et traitement des �v�nements
 		// A FAIRE : poser des �couteurs sur les composants de la fen�tre
-
+		
 		bnFermer.setOnAction(e -> {
-			System.exit(0);
+			this.close();
 		});
 		
-		listeClient.setOnMouseClicked(e->{
+		liste.setOnMouseClicked(e->{
 			GereBtn();
 		});
 		
@@ -170,31 +190,35 @@ public class FenetreSupr extends Stage {
 			Optional<ButtonType> res = sur.showAndWait();
 			if(res.isPresent() && res.get() == ButtonType.YES) {
 				if(select.equals("Client")) {
-					supprimerClient(listeClient.getSelectionModel().getSelectedIndex());
-				}else if(select.equals("R�servation")) {
+					liste.getItems().remove(liste.getSelectionModel().getSelectedIndex());
+					boolean trouve = false;
+					int i = 0;
+					while (trouve == false && i < Client.listeClient.size()){
+						if (liste.getSelectionModel().equals(Client.listeClient.get(i))){
+							Client.listeClient.remove(i);
+						}
+						i++;
+					}
+					//supprimerClient(liste.getSelectionModel().getSelectedIndex());
+				}/*else if(select.equals("R�servation")) {
 					supprimerReserv(listeClient.getSelectionModel().getSelectedIndex());
 				}else if(select.equals("Emplacement")) {
 					supprimerEmp(listeClient.getSelectionModel().getSelectedIndex());
-				}
+				}*/
 				
 			}
 		});
 		return racine;
 	}
 
-	public void actualiserListe(ObservableList<Client> lesClients) {
-		listeClient.setItems(lesClients);
-		this.GereBtn();
-	}
-	public void actualiserListe(ObservableList<Client> lesClients) {
-		listeClient.setItems(lesClients);
-		this.GereBtn();
-	}
+
+
 	public void GereBtn() {
-		if(listeClient.getSelectionModel().getSelectedIndex() == -1 || listeClient.getItems().size() == 0) {
+		if(liste.getSelectionModel().getSelectedIndex() == -1 || liste.getItems().size() == 0) {
 			bnSupprimer.setDisable(true);
 		}else {
 			bnSupprimer.setDisable(false);
 		}
 	}
 }
+

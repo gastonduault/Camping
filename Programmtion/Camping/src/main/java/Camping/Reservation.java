@@ -83,7 +83,11 @@ public class Reservation {
         }
     }
 
-    public String toString(){
+    public String toStringComplet(){
         return "numero reservation"+numeroReservation+"numero d'emplacment :"+emplacement.toString()+"nom prénom client:"+client.toString()+dateArrivee+dateDepart; 
+    }
+
+    public String toString(){
+        return "N°" + this.numeroReservation + "  Emplacement " + emplacement.toString() + "\nClient " + client.toString(); 
     }
 }
