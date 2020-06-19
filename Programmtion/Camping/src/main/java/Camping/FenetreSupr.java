@@ -55,7 +55,7 @@ public class FenetreSupr extends Stage {
 
 	// les composants de la fen�tre
 	private AnchorPane  		racine			= new AnchorPane();
-	public static ListView<String> 	liste	= new ListView<String>();
+	public static ListView<Object> 	liste	= new ListView<Object>();
 	private Button 				bnSupprimer 	= new Button("Supprimer");
 	private Button 				bnFermer 		= new Button("Retour");
 	private Button 				bnRenitia 		= new Button("Renitialiser");
@@ -125,7 +125,7 @@ public class FenetreSupr extends Stage {
 				optionTri.getSelectionModel().select(0);
 				liste.getItems().setAll();
 				for (int i = 0; i < Client.listeClient.size(); i++){
-					liste.getItems().add(Client.listeClient.get(i).toString());
+					liste.getItems().add(Client.listeClient.get(i));
 				}
 				
 			} else if(select.equals("Réservation")) {
@@ -133,7 +133,7 @@ public class FenetreSupr extends Stage {
 				optionTri.getSelectionModel().select(0);
 				liste.getItems().setAll();
 				for (int i = 0; i < Reservation.listeReservation.size(); i++){
-					liste.getItems().setAll(Reservation.listeReservation.get(i).toString());
+					liste.getItems().setAll(Reservation.listeReservation.get(i));
 				}
 				
 			}else if(select.equals("Emplacement")) {
@@ -141,7 +141,7 @@ public class FenetreSupr extends Stage {
 				optionTri.getSelectionModel().select(0);
 				liste.getItems().setAll();
 				for (int i = 0; i < Emplacement.listeEmplacement.size(); i++){
-					liste.getItems().setAll(Emplacement.listeEmplacement.get(i).toString());
+					liste.getItems().setAll(Emplacement.listeEmplacement.get(i));
 				}
 			}
 		});
@@ -194,11 +194,13 @@ public class FenetreSupr extends Stage {
 					boolean trouve = false;
 					int i = 0;
 					while (trouve == false && i < Client.listeClient.size()){
-						if (liste.getSelectionModel().equals(Client.listeClient.get(i))){
+						if (Client.listeClient.get(i).equals(liste.getSelectionModel())){
 							Client.listeClient.remove(i);
+							trouve = true;
 						}
 						i++;
 					}
+					App.actualiserClient();
 					//supprimerClient(liste.getSelectionModel().getSelectedIndex());
 				}/*else if(select.equals("R�servation")) {
 					supprimerReserv(listeClient.getSelectionModel().getSelectedIndex());

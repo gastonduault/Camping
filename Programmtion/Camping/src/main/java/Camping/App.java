@@ -20,6 +20,7 @@ public class App extends Application{
 			FenetreSupr.liste.getItems().add(Client.listeClient.get(i).toString());
 		}
 	}
+	
 	public void start(Stage f) {
 		f = new FenPrincipal();
 		f.show();
