@@ -11,6 +11,7 @@ public class App extends Application{
 	Emplacement e2 = new Emplacement(24, 34, 3);
 
 	public static void actualiserClient(){
+	    Emplacement.creeremplacement();
 		FenReservation.listeClient.getItems().setAll();
 		FenSearchClient.Liste.getItems().setAll();
 		FenetreSupr.liste.getItems().setAll();
