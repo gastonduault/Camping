@@ -20,42 +20,10 @@ import javafx.stage.Stage;
 
 public class FenetreSupr extends Stage {
 
-	/*
-	private static ObservableList<Client> lesClient = FXCollections.observableArrayList(Client.listeClient);
-	static private ObservableList<Emplacement> lesEmplacement = FXCollections.observableArrayList(Emplacement.listeEmplacement);
-	static private ObservableList<Reservation> lesReserv = FXCollections.observableArrayList(Reservation.listeReservation);
-
-
-	public static ObservableList<Client> getLesClients() {
-		return lesClient;
-	}
-	public static ObservableList<Emplacement> getLesEmplacements() {
-		return lesEmplacement;
-	}
-	public static ObservableList<Reservation> getLesReserv() {
-		return lesReserv;
-	}
-	public void actualiserListe(ObservableList<Client> lesClients) {
-		listeClient.getItems().add(lesClients.toString());
-		this.GereBtn();
-	}
-	public static void supprimerClient(int i) {
-		lesClient.remove(i);
-		fsup.actualiserListe(lesClient);
-	}
-	public static void supprimerReserv(int i) {
-		lesReserv.remove(i);
-		//fsup.actualiserListe(lesReserv);
-	}
-	public static void supprimerEmp(int i) {
-		lesEmplacement.remove(i);
-		//fsup.actualiserListe(lesEmplacement);
-	}*/
-
 
 	// les composants de la fen�tre
 	private AnchorPane  		racine			= new AnchorPane();
-	public static ListView<Object> 	liste	= new ListView<Object>();
+	public static ListView<Object> 	listeView	= new ListView<Object>();
 	private Button 				bnSupprimer 	= new Button("Supprimer");
 	private Button 				bnFermer 		= new Button("Retour");
 	private Button 				bnRenitia 		= new Button("Renitialiser");
@@ -95,9 +63,10 @@ public class FenetreSupr extends Stage {
 		optionTri.getSelectionModel().select(0);
 
 		for (int i = 0; i < Client.listeClient.size(); i++){
-			liste.getItems().add(Client.listeClient.get(i).toString());
+			listeView.getItems().add(Client.listeClient.get(i));
 		}
-		liste.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
+		listeView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
+
 
 		AnchorPane.setTopAnchor(bnRenitia, 140.0);
 		AnchorPane.setRightAnchor(bnRenitia, 10.0);
@@ -111,10 +80,10 @@ public class FenetreSupr extends Stage {
 		AnchorPane.setRightAnchor(bnSupprimer, 10.0);
 		AnchorPane.setBottomAnchor(bnFermer, 10.0);
 		AnchorPane.setRightAnchor(bnFermer, 10.0);
-		AnchorPane.setTopAnchor(liste, 10.0);
-		AnchorPane.setLeftAnchor(liste, 10.0);
-		AnchorPane.setRightAnchor(liste, 150.0);
-		AnchorPane.setBottomAnchor(liste, 10.0);
+		AnchorPane.setTopAnchor(listeView, 10.0);
+		AnchorPane.setLeftAnchor(listeView, 10.0);
+		AnchorPane.setRightAnchor(listeView, 150.0);
+		AnchorPane.setBottomAnchor(listeView, 10.0);
 		
 		input.setPromptText("Saisir " + optionTri.getSelectionModel().getSelectedItem());
 		
@@ -123,25 +92,22 @@ public class FenetreSupr extends Stage {
 			if(select.equals("Client")) {
 				optionTri.getItems().setAll(triClient);
 				optionTri.getSelectionModel().select(0);
-				liste.getItems().setAll();
-				for (int i = 0; i < Client.listeClient.size(); i++){
-					liste.getItems().add(Client.listeClient.get(i));
-				}
+				App.actualiserClient();
 				
 			} else if(select.equals("Réservation")) {
 				optionTri.getItems().setAll(triReserv);
 				optionTri.getSelectionModel().select(0);
-				liste.getItems().setAll();
+				listeView.getItems().setAll();
 				for (int i = 0; i < Reservation.listeReservation.size(); i++){
-					liste.getItems().setAll(Reservation.listeReservation.get(i));
+					listeView.getItems().setAll(Reservation.listeReservation.get(i));
 				}
 				
 			}else if(select.equals("Emplacement")) {
 				optionTri.getItems().setAll(triEmplac);
 				optionTri.getSelectionModel().select(0);
-				liste.getItems().setAll();
+				listeView.getItems().setAll();
 				for (int i = 0; i < Emplacement.listeEmplacement.size(); i++){
-					liste.getItems().setAll(Emplacement.listeEmplacement.get(i));
+					listeView.getItems().setAll(Emplacement.listeEmplacement.get(i));
 				}
 			}
 		});
@@ -171,7 +137,7 @@ public class FenetreSupr extends Stage {
 			
 		*/
 		racine.setStyle("-fx-background-color: #EF3B3C");
-		racine.getChildren().addAll(bnRenitia, optionTri,input,listeChoix,bnSupprimer, bnFermer, liste);
+		racine.getChildren().addAll(bnRenitia, optionTri,input,listeChoix,bnSupprimer, bnFermer, listeView);
 		
 		// d�tection et traitement des �v�nements
 		// A FAIRE : poser des �couteurs sur les composants de la fen�tre
@@ -180,7 +146,7 @@ public class FenetreSupr extends Stage {
 			this.close();
 		});
 		
-		liste.setOnMouseClicked(e->{
+		listeView.setOnMouseClicked(e->{
 			GereBtn();
 		});
 		
@@ -190,21 +156,17 @@ public class FenetreSupr extends Stage {
 			Optional<ButtonType> res = sur.showAndWait();
 			if(res.isPresent() && res.get() == ButtonType.YES) {
 				if(select.equals("Client")) {
-					liste.getItems().remove(liste.getSelectionModel().getSelectedIndex());
-					boolean trouve = false;
-					int i = 0;
-					while (trouve == false && i < Client.listeClient.size()){
-						if (Client.listeClient.get(i).equals(liste.getSelectionModel())){
-							Client.listeClient.remove(i);
-							trouve = true;
-						}
-						i++;
-					}
+					listeView.getItems().remove(listeView.getSelectionModel().getSelectedIndex());
+					Client.listeClient.remove(listeView.getSelectionModel().getSelectedIndex());
+					System.out.println(listeView.getSelectionModel().toString()); 
 					App.actualiserClient();
-					//supprimerClient(liste.getSelectionModel().getSelectedIndex());
-				}/*else if(select.equals("R�servation")) {
-					supprimerReserv(listeClient.getSelectionModel().getSelectedIndex());
-				}else if(select.equals("Emplacement")) {
+				}else if(select.equals("Réservation")) {
+					listeView.getItems().remove(listeView.getSelectionModel().getSelectedIndex());
+					Reservation.listeReservation.remove(listeView.getSelectionModel().getSelectedIndex());
+					//System.out.println(liste.getSelectionModel().toString());
+					
+					App.actualiserReservation();
+				}/*else if(select.equals("Emplacement")) {
 					supprimerEmp(listeClient.getSelectionModel().getSelectedIndex());
 				}*/
 				
@@ -216,7 +178,7 @@ public class FenetreSupr extends Stage {
 
 
 	public void GereBtn() {
-		if(liste.getSelectionModel().getSelectedIndex() == -1 || liste.getItems().size() == 0) {
+		if(listeView.getSelectionModel().getSelectedIndex() == -1 || listeView.getItems().size() == 0) {
 			bnSupprimer.setDisable(true);
 		}else {
 			bnSupprimer.setDisable(false);

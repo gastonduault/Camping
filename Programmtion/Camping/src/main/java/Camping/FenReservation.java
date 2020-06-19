@@ -22,7 +22,7 @@ public class FenReservation extends Stage{
     
 
     private Label emplacement = new Label("Emplacement");
-    private ComboBox<Emplacement> listeMenuEmplacement = new ComboBox<Emplacement>();
+    public static ComboBox<Emplacement> listeMenuEmplacement = new ComboBox<Emplacement>();
     private Label erreurEmplacement = new Label("Choississez un emplacement");
 
     private Label client = new Label("Client ");

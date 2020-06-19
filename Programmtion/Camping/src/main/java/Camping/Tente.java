@@ -1,13 +1,15 @@
 package Camping;
 
-public class Tente extends Emplacement{
+import javafx.scene.shape.Rectangle;
+
+public class Tente extends Emplacement {
 
     private int nbPersonne;
     private boolean eau;
     private boolean electricite;
 
-    public Tente(double surface, int prixJour, int nbVehicule, int nombrePersonne, boolean eauDispo, boolean elecDispo){
-        super(surface, prixJour, nbVehicule);
+    public Tente(Rectangle r,double surface, int prixJour, int nbVehicule, int nombrePersonne, boolean eauDispo, boolean elecDispo){
+        super(r,surface, prixJour, nbVehicule);
         nbPersonne = nombrePersonne;
         eau = eauDispo;
         electricite = elecDispo;

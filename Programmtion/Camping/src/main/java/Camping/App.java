@@ -1,33 +1,55 @@
 package Camping;
 
 import javafx.application.Application;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
 public class App extends Application{
 	
 	Client c1 = new Client("DeFosse", "Pierre", "efef@zdz");
 	Client c2 = new Client("det", "Jean", "effe@fef");
-	Emplacement e1 = new Emplacement(34, 12, 0);
-	Emplacement e2 = new Emplacement(24, 34, 3);
-
-	public static void actualiserClient(){
-	    Emplacement.creeremplacement();
+	
+	public Rectangle[] tabRectangle = new Rectangle[33];
+	
+  	public static void actualiserClient(){  
 		FenReservation.listeClient.getItems().setAll();
 		FenSearchClient.Liste.getItems().setAll();
-		FenetreSupr.liste.getItems().setAll();
+		FenetreSupr.listeView.getItems().setAll();
 		for (int i = 0; i < Client.listeClient.size(); i++){
 			FenReservation.listeClient.getItems().add(Client.listeClient.get(i));
 			FenSearchClient.Liste.getItems().add(Client.listeClient.get(i).toString());
-			FenetreSupr.liste.getItems().add(Client.listeClient.get(i).toString());
+			FenetreSupr.listeView.getItems().add(Client.listeClient.get(i).toString());
 		}
 	}
-	
+
+	public static void actualiserEmplacement(){
+		FenReservation.listeMenuEmplacement.getItems().setAll();
+		FenetreSupr.listeView.getItems().setAll();
+		for (int i = 0; i < Emplacement.listeEmplacement.size(); i++){
+			FenReservation.listeMenuEmplacement.getItems().add(Emplacement.listeEmplacement.get(i));
+			FenetreSupr.listeView.getItems().add(Emplacement.listeEmplacement.get(i));
+			if (Emplacement.listeEmplacement.get(i).getDispo() == false){
+				Emplacement.listeEmplacement.get(i).getRectangle().setFill(Color.GREEN);
+			}
+		}
+	}
+
+	public static void actualiserReservation(){
+		FenetreSupr.listeView.getItems().setAll();
+		for (int i = 0; i < Reservation.listeReservation.size(); i++){
+			FenetreSupr.listeView.getItems().add(Reservation.listeReservation.get(i));
+		}
+	}
+
+
 	public void start(Stage f) {
+		System.out.println(Emplacement.listeEmplacement.size());
 		f = new FenPrincipal();
 		f.show();
 	}
 	public static void main(String[] args) {
-		Application.launch(args);
+		launch();
 	}
 }
 

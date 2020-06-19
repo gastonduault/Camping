@@ -2,38 +2,39 @@ package Camping;
 
 import java.util.ArrayList;
 
+import javafx.scene.shape.Rectangle;
+
 public class Emplacement {
 
-    private int numeroEmplacement=0;
+    private Rectangle r;
+    private int numeroEmplacement = 0;
     private static int nbEmplacement = 0;
     private double surface;
     private boolean estDispo;
     private int prixJour;
     private int nbVehicule;
-    private static final int MAX = 33;
 
-    public static ArrayList<Emplacement> listeEmplacement = new ArrayList<Emplacement>();  
+
+    public static ArrayList<Emplacement> listeEmplacement = new ArrayList<Emplacement>();
 
     // Contructeur
-    public Emplacement(double surface, int prix, int vehicule){
+    public Emplacement(Rectangle r, double surface, int prix, int vehicule) {
+        this.r = r;
         nbEmplacement++;
-        numeroEmplacement=nbEmplacement;
+        numeroEmplacement = nbEmplacement;
         this.surface = surface;
         this.prixJour = prix;
         this.nbVehicule = vehicule;
         estDispo = true;
+        // listeEmplacement.add(this);
     }
 
-    public static void creeremplacement(){
-        for(int i=0;i<MAX;i++){
-            Emplacement e = new Emplacement(20, 30, 1);
-            Emplacement.listeEmplacement.add(e);
-            FenSearchEmplacement.Liste.getItems().add(e.toString());
-        }
+    public Rectangle getRectangle() {
+        return this.r;
     }
 
     // Guetteur
-    public  int getNumeroEmp(){
+    public int getNumeroEmp() {
         return numeroEmplacement;
     }
 
@@ -43,6 +44,7 @@ public class Emplacement {
     public double getSurface() {
         return surface;
     }
+
     /**
      * @return the prixJour
      */
@@ -57,40 +59,40 @@ public class Emplacement {
         return nbVehicule;
     }
 
-    public boolean getDispo(){
+    public boolean getDispo() {
         return this.estDispo;
     }
 
     // Setteur
 
-    public void setDispo(boolean dispo){
+    public void setDispo(boolean dispo) {
         this.estDispo = dispo;
     }
 
-    public void setPrixJour(int prix){
+    public void setPrixJour(int prix) {
         this.prixJour = prix;
     }
 
-    public void setNbVehicule(int vehicule){
+    public void setNbVehicule(int vehicule) {
         this.nbVehicule = vehicule;
     }
 
     public String toStringComplet() {
         String dispo = "Non";
-        if (estDispo){
+        if (estDispo) {
             dispo = "Oui";
         }
-        return "N° d'emplacement : " + numeroEmplacement + "\nSurface : " + this.surface + "\nPrix par Jour : " + this.prixJour
-         + "\nNombre de véhicule : " + this.nbVehicule + "\nDisponible : " + dispo;
+        return "N° d'emplacement : " + numeroEmplacement + "\nSurface : " + this.surface + "\nPrix par Jour : "
+                + this.prixJour + "\nNombre de véhicule : " + this.nbVehicule + "\nDisponible : " + dispo;
     }
 
     public String toString() {
         return "N°" + getNumeroEmp();
     }
 
-    public static void afficher(){
+    public static void afficher() {
         int i = 0;
-        while(i<=listeEmplacement.size()){
+        while (i <= listeEmplacement.size()) {
             System.out.println(listeEmplacement.get(i).toString());
             i++;
         }

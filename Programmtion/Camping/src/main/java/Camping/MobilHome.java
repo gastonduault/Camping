@@ -1,11 +1,13 @@
 package Camping;
 
-public class MobilHome extends Emplacement{
+import javafx.scene.shape.Rectangle;
+
+public class MobilHome extends Emplacement {
 
     private int nbLit;
 
-    public MobilHome(double surfac, int prixJour, int nbVehicule, int lit){
-        super(surfac, prixJour, nbVehicule);
+    public MobilHome(Rectangle r,double surfac, int prixJour, int nbVehicule, int lit){
+        super(r,surfac, prixJour, nbVehicule);
         nbLit = lit;
     }
 

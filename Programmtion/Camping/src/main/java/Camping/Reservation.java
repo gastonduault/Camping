@@ -25,7 +25,8 @@ public class Reservation {
         dateArrivee = da;
         dateDepart = dd;
         this.client = client;
-        listeReservation.add(this); 
+        listeReservation.add(this);
+        e.setDispo(false); 
     }
 
     public static int getnbReservation() {

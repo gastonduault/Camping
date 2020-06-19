@@ -37,15 +37,6 @@ public class FenSearchEmplacement extends Stage {
       this.sizeToScene();
     }
 
-    public void actualiserListe(){
-      for(int i=0; i<=33; i++){
-        Liste.getItems().add(Emplacement.listeEmplacement.get(i).toString());
-        }
-    }
-
-    public void test(){
-        Emplacement.afficher();
-    }
 
     Parent contenu(){
         Rectangle fond = new Rectangle(0, 0, 800, 600);
