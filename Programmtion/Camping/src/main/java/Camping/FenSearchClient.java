@@ -6,6 +6,7 @@ import javafx.scene.control.SelectionMode;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Rectangle;
 import javafx.event.EventHandler;
+import javafx.scene.Cursor;
 import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -35,13 +36,14 @@ public class FenSearchClient extends Stage {
       Scene fenPrin = new Scene(contenu());
       this.setScene(fenPrin);
       this.sizeToScene();
+      App.actualiserClient();
     }
 
-    public void actualiserListe(){
+    /*public void actualiserListe(){
       for(int i=0; i<=Client.getNbClient(); i++){
         Liste.getItems().add(Client.listeClient.get(i).toStringComplet());
       }
-    }
+    }*/
 
     Parent contenu(){
         Rectangle fond = new Rectangle(0, 0, 800, 600);
@@ -49,6 +51,8 @@ public class FenSearchClient extends Stage {
 
         Circle annuler = new Circle(700, 45, 25);
         annuler.setFill(blanc);
+        annuler.setCursor(Cursor.HAND);
+
         Image croix = new Image(getClass().getResource("images/croix.png").toString());
         ImageView croixIV = new ImageView(croix);
         croixIV.setFitWidth(25);
