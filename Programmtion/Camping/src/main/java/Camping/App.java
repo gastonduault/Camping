@@ -8,6 +8,8 @@ public class App extends Application{
 	
 	Client c1 = new Client("DeFosse", "Pierre", "efef@zdz");
 	Client c2 = new Client("det", "Jean", "effe@fef");
+	Client c3 = new Client("A", "nathan", "zdzdzd@");
+	Client c4 = new Client("Y", "nathan", "zdzdzd@");
 	
 	
   	public static void actualiserClient(){  
@@ -23,10 +25,10 @@ public class App extends Application{
 
 	public static void actualiserEmplacement(){
 		FenReservation.listeMenuEmplacement.getItems().setAll();
-		FenetreSupr.listeView.getItems().setAll();
+		//FenetreSupr.listeView.getItems().setAll();
 		for (int i = 0; i < Emplacement.listeEmplacement.size(); i++){
 			FenReservation.listeMenuEmplacement.getItems().add(Emplacement.listeEmplacement.get(i));
-			FenetreSupr.listeView.getItems().add(Emplacement.listeEmplacement.get(i));
+			//FenetreSupr.listeView.getItems().add(Emplacement.listeEmplacement.get(i));
 			if (Emplacement.listeEmplacement.get(i).getDispo() == false){
 				Emplacement.listeEmplacement.get(i).getRectangle().setFill(Color.GREEN);
 			}

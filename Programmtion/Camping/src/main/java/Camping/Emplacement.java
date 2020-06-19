@@ -65,6 +65,9 @@ public class Emplacement {
 
     // Setteur
 
+    public void setSurface(double s){
+        this.surface = s;
+    }
     public void setDispo(boolean dispo) {
         this.estDispo = dispo;
     }

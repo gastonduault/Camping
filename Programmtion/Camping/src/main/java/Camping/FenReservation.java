@@ -123,6 +123,7 @@ public class FenReservation extends Stage{
 
         if (test == true){
             Reservation r = new Reservation(listeMenuEmplacement.getValue(), dateEntree.getValue(), dateSortie.getValue(), listeClient.getValue());
+            listeMenuEmplacement.getValue().getRectangle().setFill(Color.RED);
             this.close();
         }
         

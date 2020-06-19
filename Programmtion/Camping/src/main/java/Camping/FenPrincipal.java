@@ -62,7 +62,11 @@ public class FenPrincipal extends Stage {
         }
 
         App.actualiserEmplacement();
-
+        for (int i = 0; i < Emplacement.listeEmplacement.size(); i++){
+            if (Emplacement.listeEmplacement.get(i).getDispo()){
+                Emplacement.listeEmplacement.get(i).getRectangle().setFill(Color.GREEN);
+            }
+        }
         Rectangle fond = new Rectangle(0, 0, 800, 600);
         fond.setFill(bleuF);
         fond.setLayoutX(0);
@@ -148,7 +152,6 @@ public class FenPrincipal extends Stage {
             r.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent t) {
-                    System.out.println();
                     fInfoEmp.actualiserInfo((Rectangle) t.getSource());
 
                     fInfoEmp.show();

@@ -18,7 +18,8 @@ import javafx.stage.Stage;
 
 
 public class FenInfoEmp extends Stage {
-    
+    int index = 0;
+
     Label num = new Label("Numéro : ");
     Label numE = new Label("");
     Label surface = new Label("Surface : ");
@@ -72,25 +73,27 @@ public class FenInfoEmp extends Stage {
         root.add(dispo, 1, 5);
         root.add(dispoText, 2, 5);
         root.add(submit, 1, 6);
-        //cancel.setOnAction(e -> {annuler(e);});
+        cancel.setOnAction(e -> {annuler(e);});
         root.add(cancel, 2, 6);
         return root;
     }
+
 
     public void actualiserInfo(Rectangle r){
         boolean trouve = false;
         int i = 0;
         while (trouve == false && i < Emplacement.listeEmplacement.size()){
             if (Emplacement.listeEmplacement.get(i).getRectangle() == r){
+                index = i;
                 trouve = true;
             }
             i++;
         }
-        surfaceText.setText(String.valueOf(Emplacement.listeEmplacement.get(i).getSurface()));
-        prixText.setText(String.valueOf(Emplacement.listeEmplacement.get(i).getPrixJour()));
-        nbVText.setText(String.valueOf(Emplacement.listeEmplacement.get(i).getNbVehicule()));
-        numE.setText(String.valueOf(Emplacement.listeEmplacement.get(i).getNumeroEmp()));
-        if (Emplacement.listeEmplacement.get(i).getDispo()){
+        surfaceText.setText(String.valueOf(Emplacement.listeEmplacement.get(index).getSurface()));
+        prixText.setText(String.valueOf(Emplacement.listeEmplacement.get(index).getPrixJour()));
+        nbVText.setText(String.valueOf(Emplacement.listeEmplacement.get(index).getNbVehicule()));
+        numE.setText(String.valueOf(Emplacement.listeEmplacement.get(index).getNumeroEmp()));
+        if (Emplacement.listeEmplacement.get(index).getDispo()){
             dispoText.setText("Oui");
         } else {
             dispoText.setText("Non");
@@ -119,5 +122,19 @@ public class FenInfoEmp extends Stage {
         } else {
             erreurVehicule.setTextFill(Color.TRANSPARENT);
         }
+
+        if (valide){
+            Emplacement.listeEmplacement.get(index).setNbVehicule(Integer.parseInt(nbVText.getText()));
+            Emplacement.listeEmplacement.get(index).setPrixJour(Integer.parseInt(prixText.getText()));
+            Emplacement.listeEmplacement.get(index).setSurface(Double.parseDouble(surfaceText.getText()));
+            this.close();
+        }
+    }
+
+    public void annuler(ActionEvent e){
+        surfaceText.setText(String.valueOf(Emplacement.listeEmplacement.get(index).getSurface()));
+        prixText.setText(String.valueOf(Emplacement.listeEmplacement.get(index).getPrixJour()));
+        nbVText.setText(String.valueOf(Emplacement.listeEmplacement.get(index).getNbVehicule()));
+        this.close();
     }
 }
