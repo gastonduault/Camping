@@ -6,6 +6,7 @@ import javafx.scene.control.SelectionMode;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Rectangle;
 import javafx.event.EventHandler;
+import javafx.scene.Cursor;
 import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -35,6 +36,7 @@ public class FenSearchEmplacement extends Stage {
       Scene fenPrin = new Scene(contenu());
       this.setScene(fenPrin);
       this.sizeToScene();
+      App.actualiserEmplacement();
     }
 
 
@@ -44,6 +46,7 @@ public class FenSearchEmplacement extends Stage {
 
         Circle annuler = new Circle(700, 45, 25);
         annuler.setFill(blanc);
+        annuler.setCursor(Cursor.HAND);
         Image croix = new Image(getClass().getResource("images/croix.png").toString());
         ImageView croixIV = new ImageView(croix);
         croixIV.setFitWidth(25);
