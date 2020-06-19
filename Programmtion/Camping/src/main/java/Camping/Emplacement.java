@@ -8,7 +8,7 @@ public class Emplacement {
 
     private Rectangle r;
     private int numeroEmplacement = 0;
-    private static int nbEmplacement = 0;
+    public static int nbEmplacement = -1;
     private double surface;
     private boolean estDispo;
     private int prixJour;
@@ -18,8 +18,8 @@ public class Emplacement {
     public static ArrayList<Emplacement> listeEmplacement = new ArrayList<Emplacement>();
 
     // Contructeur
-    public Emplacement(Rectangle r, double surface, int prix, int vehicule) {
-        this.r = r;
+    public Emplacement(Rectangle rectangle, double surface, int prix, int vehicule) {
+        this.r = rectangle;
         nbEmplacement++;
         numeroEmplacement = nbEmplacement;
         this.surface = surface;

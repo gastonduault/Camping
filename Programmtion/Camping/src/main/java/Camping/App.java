@@ -2,7 +2,6 @@ package Camping;
 
 import javafx.application.Application;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
 public class App extends Application{
@@ -10,7 +9,6 @@ public class App extends Application{
 	Client c1 = new Client("DeFosse", "Pierre", "efef@zdz");
 	Client c2 = new Client("det", "Jean", "effe@fef");
 	
-	public Rectangle[] tabRectangle = new Rectangle[33];
 	
   	public static void actualiserClient(){  
 		FenReservation.listeClient.getItems().setAll();
@@ -44,7 +42,6 @@ public class App extends Application{
 
 
 	public void start(Stage f) {
-		System.out.println(Emplacement.listeEmplacement.size());
 		f = new FenPrincipal();
 		f.show();
 	}

@@ -49,6 +49,8 @@ public class FenPrincipal extends Stage {
     Parent contenu() {
 
         // Création Emplacement
+        Emplacement.listeEmplacement.clear();
+        Emplacement.nbEmplacement = -1;
         boolean test = true;
         if (test){
             for (int i = 0; i < 33; i++) {
@@ -60,8 +62,6 @@ public class FenPrincipal extends Stage {
         }
 
         App.actualiserEmplacement();
-        System.out.println(tabRectangle.length);
-        System.out.println(Emplacement.listeEmplacement.size());
 
         Rectangle fond = new Rectangle(0, 0, 800, 600);
         fond.setFill(bleuF);
@@ -196,7 +196,6 @@ public class FenPrincipal extends Stage {
         plan.add(tabRectangle[29], 5, 5);
         plan.add(tabRectangle[30], 6, 5);
         plan.add(tabRectangle[31], 7, 5);
-        plan.add(tabRectangle[32], 8, 5);
         plan.setHgap(50);
         plan.setVgap(50);
 
