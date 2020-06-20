@@ -8,7 +8,7 @@ public class Emplacement {
 
     private Rectangle r;
     private int numeroEmplacement = 0;
-    private static int nbEmplacement = 0;
+    public static int nbEmplacement = 0;
     private double surface;
     private boolean estDispo;
     private int prixJour;

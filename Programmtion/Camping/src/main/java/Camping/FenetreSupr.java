@@ -48,7 +48,7 @@ public class FenetreSupr extends Stage {
 
 		listeChoix.setPrefWidth(120.0);
 		listeChoix.getItems().setAll();
-		listeChoix.getItems().addAll("Client", "Réservation");
+		listeChoix.getItems().addAll("Réservation","Client");
 		listeChoix.getSelectionModel().select(0);
 
 		optionTri.setPrefWidth(120.0);
@@ -101,21 +101,20 @@ public class FenetreSupr extends Stage {
 			String liste = listeChoix.getSelectionModel().getSelectedItem();
 			String select = optionTri.getSelectionModel().getSelectedItem();
 			if (liste.equals("Client")){
-				if (select.equals("Numéro")){
+				if (select.equals("Numéro")){  // Tri par numéro
 					listeView.getItems().setAll();
 					for (int i = 0; i < Client.listeClient.size() ; i++) {
 						listeView.getItems().add(Client.listeClient.get(i));
 					}
 				}
-				else if (select.equals("Date de création")){
+				else if (select.equals("Date de création")){  // Tri par date de création
 					listeView.getItems().setAll();
 					for (int i = 0; i < Client.listeClient.size() ; i++) {
 						listeView.getItems().add(0,	 Client.listeClient.get(i));
 					}
-					System.out.println(Client.listeClient.get(1).getNom().compareToIgnoreCase("der"));
 					
 				}
-				else if (select.equals("Nom")){
+				else if (select.equals("Nom")){	// Tri par nom
 
 					listeView.getItems().setAll();
 					for (int i = 0; i <  Client.listeClient.size(); i++){
@@ -123,10 +122,9 @@ public class FenetreSupr extends Stage {
 						int j = i;
 						while(j>0 && Client.listeClient.get(j-1).getNom().compareTo(c.getNom()) > 0){
 							listeView.getItems().add(j, Client.listeClient.get(j-1));
-							//listeView.getItems().add(j, Client.listeClient.get(j-1));
+							listeView.getItems().remove(j-1);
 							j = j-1;
-						}
-						
+						}	
 						listeView.getItems().add(j, c);
 					}
 				}
