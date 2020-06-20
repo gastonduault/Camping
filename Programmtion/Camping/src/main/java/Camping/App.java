@@ -18,7 +18,7 @@ public class App extends Application{
 		FenetreSupr.listeView.getItems().setAll();
 		for (int i = 0; i < Client.listeClient.size(); i++){
 			FenReservation.listeClient.getItems().add(Client.listeClient.get(i));
-			FenSearchClient.Liste.getItems().add(Client.listeClient.get(i).toString());
+			FenSearchClient.Liste.getItems().add(Client.listeClient.get(i).toStringComplet());
 			FenetreSupr.listeView.getItems().add(Client.listeClient.get(i).toString());
 		}
 	}
@@ -26,9 +26,11 @@ public class App extends Application{
 	public static void actualiserEmplacement(){
 		FenReservation.listeMenuEmplacement.getItems().setAll();
 		//FenetreSupr.listeView.getItems().setAll();
+		FenSearchEmplacement.Liste.getItems().setAll();
 		for (int i = 0; i < Emplacement.listeEmplacement.size(); i++){
 			FenReservation.listeMenuEmplacement.getItems().add(Emplacement.listeEmplacement.get(i));
 			//FenetreSupr.listeView.getItems().add(Emplacement.listeEmplacement.get(i));
+			FenSearchEmplacement.Liste.getItems().add(Emplacement.listeEmplacement.get(i).toStringComplet());
 			if (Emplacement.listeEmplacement.get(i).getDispo() == false){
 				Emplacement.listeEmplacement.get(i).getRectangle().setFill(Color.GREEN);
 			}
@@ -37,8 +39,10 @@ public class App extends Application{
 
 	public static void actualiserReservation(){
 		FenetreSupr.listeView.getItems().setAll();
+		FenSearchReservation.Liste.getItems().setAll();
 		for (int i = 0; i < Reservation.listeReservation.size(); i++){
 			FenetreSupr.listeView.getItems().add(Reservation.listeReservation.get(i));
+			FenSearchReservation.Liste.getItems().add(Reservation.listeReservation.get(i));
 		}
 	}
 
