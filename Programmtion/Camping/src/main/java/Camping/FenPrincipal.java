@@ -64,7 +64,7 @@ public class FenPrincipal extends Stage {
         App.actualiserEmplacement();
         for (int i = 0; i < Emplacement.listeEmplacement.size(); i++){
             if (Emplacement.listeEmplacement.get(i).getDispo()){
-                Emplacement.listeEmplacement.get(i).getRectangle().setFill(Color.GREEN);
+                Emplacement.listeEmplacement.get(i).getRectangle().setFill(vert);
             }
         }
         Rectangle fond = new Rectangle(0, 0, 800, 600);
@@ -148,6 +148,15 @@ public class FenPrincipal extends Stage {
             }
 
         });
+
+        Label txtajouter = new Label("ajouter");
+        txtajouter.setLayoutX(60);
+        txtajouter.setLayoutY(400);
+        Label txtsupprimer = new Label("supprimer");
+        txtsupprimer.setLayoutX(60);
+        txtsupprimer.setLayoutY(460);
+
+
         for (Rectangle r : tabRectangle) {
             r.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
@@ -215,14 +224,54 @@ public class FenPrincipal extends Stage {
             quitter(e);
         });
 
+        Image arbre = new Image(getClass().getResource("images/arbre.png").toString());
+        ImageView arbre1 = new ImageView(arbre);
+        arbre1.setLayoutX(210);
+        arbre1.setLayoutY(100);
+        ImageView arbre2 = new ImageView(arbre);
+        arbre2.setLayoutX(500);
+        arbre2.setLayoutY(100);
+        ImageView arbre3 = new ImageView(arbre);
+        arbre3.setLayoutX(355);
+        arbre3.setLayoutY(100);
+        ImageView arbre4 = new ImageView(arbre);
+        arbre4.setLayoutX(520);
+        arbre4.setLayoutY(380);
+        arbre4.setFitWidth(50);
+        arbre4.setFitHeight(50);
+        ImageView arbre5 = new ImageView(arbre);
+        arbre5.setLayoutX(620);
+        arbre5.setLayoutY(380);
+        arbre5.setFitWidth(50);
+        arbre5.setFitHeight(50);
+        Image swing = new Image(getClass().getResource("images/swing.png").toString());
+        ImageView toboganI = new ImageView(swing);
+        toboganI.setLayoutX(300);
+        toboganI.setLayoutY(490);
+        toboganI.setFitHeight(40);
+        toboganI.setFitWidth(40);
+        Image tobogan = new Image(getClass().getResource("images/tobogan.png").toString());
+        ImageView swingI = new ImageView(tobogan);
+        swingI.setLayoutX(520);
+        swingI.setLayoutY(490);
+        swingI.setFitHeight(45);
+        swingI.setFitWidth(45);
+        Image balance = new Image(getClass().getResource("images/balance.png").toString());
+        ImageView balanceI = new ImageView(balance);
+        balanceI.setLayoutX(425);
+        balanceI.setLayoutY(490);
+        balanceI.setFitHeight(45);
+        balanceI.setFitWidth(45);
+
+
         Group recherche = new Group();
         recherche.getChildren().addAll(rondloupe, loupeIV);
 
         Group legende = new Group();
-        legende.getChildren().addAll(carrevert, carrerouge, Libre, reserve, ajouter, supprimer, plusIV, moinIV);
+        legende.getChildren().addAll(carrevert, carrerouge, Libre, reserve, ajouter, supprimer, plusIV, moinIV, txtajouter, txtsupprimer);
 
         Group carte = new Group();
-        carte.getChildren().addAll(plan, lacIV);
+        carte.getChildren().addAll(plan, lacIV, arbre1, arbre2, arbre3, arbre4,balanceI, arbre5, swingI,toboganI);
 
         Group total = new Group();
         total.getChildren().addAll(fond, recherche, legende, carte, fermer);
