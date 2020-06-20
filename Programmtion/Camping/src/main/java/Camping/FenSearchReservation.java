@@ -26,7 +26,7 @@ public class FenSearchReservation extends Stage {
     
     static private FenSearch fsearch = new FenSearch();
   
-    public static ListView<String> Liste  = new ListView<String>();
+    public static ListView<Object> Liste  = new ListView<Object>();
 
     public FenSearchReservation() {
       this.setTitle("Camping");
