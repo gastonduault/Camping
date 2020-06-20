@@ -84,7 +84,11 @@ public class FenetreSupr extends Stage {
 			if (select.equals("Client")) {
 				optionTri.getItems().setAll(triClient);
 				optionTri.getSelectionModel().select(0);
-				App.actualiserClient();
+				listeView.getItems().setAll();
+				for (int i = 0; i < Client.listeClient.size(); i++){
+					listeView.getItems().add(Client.listeClient.get(i));
+				}
+				//App.actualiserClient();
 
 			} else if (select.equals("Réservation")) {
 				optionTri.getItems().setAll(triReserv);
@@ -183,10 +187,20 @@ public class FenetreSupr extends Stage {
 			Optional<ButtonType> res = sur.showAndWait();
 			if (res.isPresent() && res.get() == ButtonType.YES) {
 				if (select.equals("Client")) {
+					Object s = listeView.getSelectionModel().getSelectedItem();
+					boolean trouve = false;
+					int i = 0;
+					while(trouve == false && i < Client.listeClient.size()){
+						if (s.equals(Client.listeClient.get(i))){
+							trouve = true;
+						}
+						System.out.println(Client.listeClient.get(i).toString());
+						i++;
+					}
 					listeView.getItems().remove(listeView.getSelectionModel().getSelectedIndex());
-					Client.listeClient.remove(listeView.getSelectionModel().getSelectedIndex());
-					System.out.println(listeView.getSelectionModel().toString());
+					Client.listeClient.remove(i);
 					App.actualiserClient();
+
 				} else if (select.equals("Réservation")) {
 					listeView.getItems().remove(listeView.getSelectionModel().getSelectedIndex());
 					Reservation.listeReservation.remove(listeView.getSelectionModel().getSelectedIndex());
