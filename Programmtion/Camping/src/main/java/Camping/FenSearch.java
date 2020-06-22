@@ -61,7 +61,6 @@ public class FenSearch extends Stage{
     {
         @Override
         public void handle(MouseEvent t) {
-          fprincipal.show();
           close();
         }
     });

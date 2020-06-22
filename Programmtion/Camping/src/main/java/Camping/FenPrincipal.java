@@ -85,14 +85,12 @@ public class FenPrincipal extends Stage {
             @Override
             public void handle(MouseEvent t) {
                 fSearch.show();
-                close();
             }
         });
         rondloupe.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent t) {
                 fSearch.show();
-                close();
             }
         });
 
